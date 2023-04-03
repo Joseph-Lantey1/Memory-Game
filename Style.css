@@ -20,9 +20,6 @@ body{
     width: 153px; 
 }
 
-#gamesetup{
-    /* height: 1024px; */
-}
 
 .gametitle h1{
     text-align: center;
@@ -627,7 +624,6 @@ body{
     margin: auto;
     display: grid;
     grid-template-columns: 1fr;
-
     justify-content: space-between;
     
 }
