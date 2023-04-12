@@ -21,6 +21,7 @@ body{
 }
 
 
+
 .gametitle h1{
     text-align: center;
     font-size: 40px;
@@ -71,7 +72,7 @@ body{
 #number_btn{
     height: 52px;
     width: 256px;
-    background: #304859;
+    background: #BCCED9;
     border-radius: 26px;
     border: none;
     font-weight: 700;
@@ -79,6 +80,15 @@ body{
     line-height: 32px;
     text-align: center;
     color: #FCFCFC;
+}
+
+#number_btn:hover{
+    cursor: pointer;
+    background: #6395B8;
+}
+
+.selected {
+    background-color: #304859 !important;
 }
 
 #icon_btn{
@@ -140,11 +150,7 @@ body{
     color: #FCFCFC;
 }
 
-.player1{
-    background: #304859;
-}
-
-.players2,
+.player1,.players2,
 .players3,.players4{
     background: #BCCED9;
 }
@@ -204,11 +210,8 @@ body{
     color: #FCFCFC;
 }
 
-.fourbyfour{
-    background: #304859;
-}
 
-.sixbysix{
+.fourbyfour,.sixbysix{
     background: #BCCED9;
 }
 
@@ -316,7 +319,7 @@ body{
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
-.circle6x6{
+.card6x6{
     width: 82px;
     height: 82px;
     background: #304859;
@@ -324,7 +327,7 @@ body{
     margin-bottom: 16px;
 }
 
-.players6x6,.players4x4{
+.playerscontainer{
     width: 1110px;
     height: 130px;
     margin: auto;
@@ -399,7 +402,7 @@ body{
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
-.circle4x4{
+.card4x4{
     height: 118px;
     width: 118px;
     border-radius: 59px;
@@ -494,7 +497,7 @@ body{
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
-.circle6x6_solo{
+.card6x6_solo{
     width: 82px;
     height: 82px;
     background: #304859;
@@ -502,7 +505,7 @@ body{
     margin-bottom: 16px;
 }
 
-.circle4x4_solo{
+.card4x4_solo{
     height: 118px;
     width: 118px;
     border-radius: 59px;
