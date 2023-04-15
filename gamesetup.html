@@ -5,75 +5,364 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="Style.css">
   
   <title>Memory Game</title>
 </head>
 <body>
-  <section id="gamesetup">
-    <div class="Game">
-      <div class="gametitle"> 
-        <h1> memory</h1>
-      </div>
-      	
-  <!-- Game setup start -->
-    <div class="gamesetup">
-      <div class="theme">
-        <div class="themeheading">
-          <h1>Select Theme</h1>
+    <section id="gamesetup">
+        <div class="Game">
+                <div class="gametitle"> 
+                    <h1> memory</h1>
+                </div>
+              
+      <!-- Game setup start -->
+                <div class="gamesetup">
+                        <div class="theme">
+                    <div class="themeheading">
+                        <h1>Select Theme</h1>
+                    </div>
+                    <div class="theme_btn">
+                        <button id="number_btn" class="selected" type="text">Numbers</button>
+                        <button id="icon_btn" type="text">Icons</button>
+                    </div>
+                </div>
+        
+                <div class="playersselect">
+                    <div class="playersselect_heading">
+                        <h1>Number of Players</h1>
+                    </div>
+                    <div class="playersselect_btn">
+                        <button Class="player1 selected" type="number">1</button>
+                        <button class="players2" type="number">2</button>
+                        <button class="players3" type="number">3</button>
+                        <button class="players4" type="number">4</button>
+                    </div>
+                </div>
+                <div class="gridsize">
+                    <div class=gridsize_heading>
+                        <h1>Grid Size</h1>
+                    </div>
+                    <div class="gridsize_btn">
+                        <button class="fourbyfour selected" type="number">4x4</button>
+                        <button class="sixbysix" type="number">6x6</button>
+                    </div>
+                </div>
+                <div class="startgame">
+                    <button class="startgame_btn" type="text">Start Game</button>
+                </div>  
+      <!-- <!- - Game setup end --> 
+            </div>
         </div>
-        <div class="theme_btn">
-          <button id="number_btn" class="selected" type="text">Numbers</button>
-          <button id="icon_btn" type="text">Icons</button>
+    </section>
+    <section id="gameboard_4x4_start_solo">
+        <div class="gameboard_solo">
+            <!-- Game board 4x4 solo start -->
+            <div class="gameboard_header">
+                <div class="gameboard_header_left">
+                    memory
+                </div>
+                <div class="gameboard_4x4_header_right">
+                    <button class="gameboard_header_right_restart_btn" type="text">Restart</button>
+                    <button class="gameboard_header_right_newgame_btn" type="text">New Game</button>
+                </div>
+            </div>
+            <div class="gameboard4x4">
+                <div class="row4x4">
+                    <div id="card" class="card4x4_solo"></div>
+                    <div id="card" class="card4x4_solo"></div>
+                    <div id="card" class="card4x4_solo"></div>
+                    <div id="card" class="card4x4_solo"></div>
+                </div>
+                <div class="row4x4">
+                    <div id="card" class="card4x4_solo"></div>
+                    <div id="card" class="card4x4_solo"></div>
+                    <div id="card" class="card4x4_solo"></div>
+                    <div id="card" class="card4x4_solo"></div>
+                </div>
+                <div class="row4x4">
+                    <div id="card" class="card4x4_solo"></div>
+                    <div id="card" class="card4x4_solo"></div>
+                    <div id="card" class="card4x4_solo"></div>
+                    <div id="card" class="card4x4_solo"></div>
+                </div>
+                <div class="row4x4">
+                    <div id="card" class="card4x4_solo"></div>
+                    <div id="card" class="card4x4_solo"></div>
+                    <div id="card" class="card4x4_solo"></div>
+                    <div id="card" class="card4x4_solo"></div>
+                </div>
+            </div>
+            <div class="timermoves_solo">
+                    <div class="timer_solo">
+                        <p class="time_solo">Time</p>
+                        <p class="timecount_solo">0:01</p>
+                    </div>
+                    <div class="moves_solo">
+                        <p class="move_solo">Moves</p>
+                        <p class="movescount_solo">0</p>
+                    </div>
+            </div>
         </div>
-      </div>
+    </section>
+    <section id="gameboard_6X6_start_solo">
+        <div class="gameboard_solo">
+      <!-- Game board 6X6 solo start -->
+            <div class="gameboard_header">
+                <div class="gameboard_header_left">
+                    memory
+                </div>
+                <div class="gameboard_header_right">
+                    <button class="gameboard_header_right_restart_btn" type="text">Restart</button>
+                    <button class="gameboard_header_right_newgame_btn" type="text">New Game</button>
+                </div>
+            </div>
+            <div class="gameboard6x6">
+                <div class="row6x6">
+                    <div id="card" class="card6x6 solo"></div>
+                    <div id="card" class="card6x6 solo"></div>
+                    <div id="card" class="card6x6 solo"></div>
+                    <div id="card" class="card6x6 solo"></div>
+                    <div id="card" class="card6x6 solo"></div>
+                    <div id="card" class="card6x6 solo"></div>
+                </div>
+                <div class="row6x6">
+                    <div id="card" class="card6x6 solo"></div>
+                    <div id="card" class="card6x6 solo"></div>
+                    <div id="card" class="card6x6 solo"></div>
+                    <div id="card" class="card6x6 solo"></div>
+                    <div id="card" class="card6x6 solo"></div>
+                    <div id="card" class="card6x6 solo"></div>
+                </div>
+                <div class="row6x6">
+                    <div id="card" class="card6x6 solo"></div>
+                    <div id="card" class="card6x6 solo"></div>
+                    <div id="card" class="card6x6 solo"></div>
+                    <div id="card" class="card6x6 solo"></div>
+                    <div id="card" class="card6x6 solo"></div>
+                    <div id="card" class="card6x6 solo"></div>
+                </div>
+                <div class="row6x6">
+                    <div id="card" class="card6x6 solo"></div>
+                    <div id="card" class="card6x6 solo"></div>
+                    <div id="card" class="card6x6 solo"></div>
+                    <div id="card" class="card6x6 solo"></div>
+                    <div id="card" class="card6x6 solo"></div>
+                    <div id="card" class="card6x6 solo"></div>
+                </div>
+                <div class="row6x6">
+                    <div id="card" class="card6x6 solo"></div>
+                    <div id="card" class="card6x6 solo"></div>
+                    <div id="card" class="card6x6 solo"></div>
+                    <div id="card" class="card6x6 solo"></div>
+                    <div id="card" class="card6x6 solo"></div>
+                    <div id="card" class="card6x6 solo"></div>
+                </div>
+                <div class="row6x6">
+                    <div id="card" class="card6x6 solo"></div>
+                    <div id="card" class="card6x6 solo"></div>
+                    <div id="card" class="card6x6 solo"></div>
+                    <div id="card" class="card6x6 solo"></div>
+                    <div id="card" class="card6x6 solo"></div>
+                    <div id="card" class="card6x6 solo"></div>
+                </div>
+            </div>
+            <div class="timermoves_solo">
+                <div class="timer_solo">
+                    <div class="time_solo">Time</div>
+                    <div class="timecount_solo">0:01</div>
+                </div>
+                <div class="moves_solo">
+                    <div class="move_solo">Moves</div>
+                    <div class="movescount_solo">0</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="gameboard_4x4_start">
+        <div class="gameboard">
+      <!-- Game board 4x4 start -->
+            <div class="gameboard_header">
+                <div class="gameboard_header_left">
+                    memory
+                </div>
+                <div class="gameboard_header_right">
+                    <button class="gameboard_header_right_restart_btn" type="text">Restart</button>
+                    <button class="gameboard_header_right_newgame_btn" type="text">New Game</button>
+                </div>
+            </div>
+            <div class="gameboard4x4">
+                <div class="row4x4">
+                    <div id="card" class="card4x4_multi"></div>
+                    <div id="card" class="card4x4_multi"></div>
+                    <div id="card" class="card4x4_multi"></div>
+                    <div id="card" class="card4x4_multi"></div>
+                </div>
+                <div class="row4x4">
+                    <div id="card" class="card4x4_multi"></div>
+                    <div id="card" class="card4x4_multi"></div>
+                    <div id="card" class="card4x4_multi"></div>
+                    <div id="card" class="card4x4_multi"></div>
+                </div>
+                <div class="row4x4">
+                    <div id="card" class="card4x4_multi"></div>
+                    <div id="card" class="card4x4_multi"></div>
+                    <div id="card" class="card4x4_multi"></div>
+                    <div id="card" class="card4x4_multi"></div>
+                </div>
+                <div class="row4x4">
+                    <div id="card" class="card4x4_multi"></div>
+                    <div id="card" class="card4x4_multi"></div>
+                    <div id="card" class="card4x4_multi"></div>
+                    <div id="card" class="card4x4_multi"></div>
+                </div>
+           </div>
+             <!-- Multiplayer 4X4 scores start -->
+            <div class="playerscontainer">
+                <div id="player1" class="player_turn">
+                    <div class="scoreboard">
+                        <p class="p1">Player 1</p>
+                        <p class="p1_score">0</p>
+                    </div>
+                    <div class="current_turn">
+                        CURRENT TURN
+                    </div>
+                </div>
+                <div id="player2" class="player_turn">
+                    <div class="scoreboard">
+                        <p class="p2">Player 2</p>
+                        <p class="p2_score">0</p>
+                    </div>
+                    <div class="current_turn">
+                        CURRENT TURN
+                    </div>
+                </div>
+                <div id="player3" class="player_turn">
+                    <div class="scoreboard">
+                        <p class="p3">Player 3</p>
+                        <p class="p3_score">0</p>
+                    </div>
+                    <div class="current_turn">
+                        CURRENT TURN
+                    </div>
+                </div>
+                <div id="player4" class="player_turn">
+                    <div class="scoreboard">
+                        <p class="p4">Player 4</p>
+                        <p class="p4_score">0</p>
+                    </div>
+                    <div class="current_turn">
+                        CURRENT TURN
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="gameboard_6X6_start">
+        <div class="gameboard">
+      <!-- Game board 6X6 start -->
+            <div class="gameboard_header">
+                <div class="gameboard_header_left">
+                    memory
+                </div>
+                <div class="gameboard_header_right">
+                    <button class="gameboard_header_right_restart_btn" type="text">Restart</button>
+                    <button class="gameboard_header_right_newgame_btn" type="text">New Game</button>
+                </div>
+            </div>
+            <div class="gameboard6x6">
+                <div class="row6x6">
+                    <div id="card" class="card6x6 multi"></div>
+                    <div id="card" class="card6x6 multi"></div>
+                    <div id="card" class="card6x6 multi"></div>
+                    <div id="card" class="card6x6 multi"></div>
+                    <div id="card" class="card6x6 multi"></div>
+                    <div id="card" class="card6x6 multi"></div>
+                </div>
+                    <div class="row6x6">
+                    <div id="card" class="card6x6 multi"></div>
+                    <div id="card" class="card6x6 multi"></div>
+                    <div id="card" class="card6x6 multi"></div>
+                    <div id="card" class="card6x6 multi"></div>
+                    <div id="card" class="card6x6 multi"></div>
+                    <div id="card" class="card6x6 multi"></div>
+                </div>
+                <div class="row6x6">
+                    <div id="card" class="card6x6 multi"></div>
+                    <div id="card" class="card6x6 multi"></div>
+                    <div id="card" class="card6x6 multi"></div>
+                    <div id="card" class="card6x6 multi"></div>
+                    <div id="card" class="card6x6 multi"></div>
+                    <div id="card" class="card6x6 multi"></div>
+                </div>
+                <div class="row6x6">
+                    <div id="card" class="card6x6 multi"></div>
+                    <div id="card" class="card6x6 multi"></div>
+                    <div id="card" class="card6x6 multi"></div>
+                    <div id="card" class="card6x6 multi"></div>
+                    <div id="card" class="card6x6 multi"></div>
+                    <div id="card" class="card6x6 multi"></div>
+                </div>
+                <div class="row6x6">
+                    <div id="card" class="card6x6 multi"></div>
+                    <div id="card" class="card6x6 multi"></div>
+                    <div id="card" class="card6x6 multi"></div>
+                    <div id="card" class="card6x6 multi"></div>
+                    <div id="card" class="card6x6 multi"></div>
+                    <div id="card" class="card6x6 multi"></div>
+                </div>
+                <div class="row6x6">
+                    <div id="card" class="card6x6 multi"></div>
+                    <div id="card" class="card6x6 multi"></div>
+                    <div id="card" class="card6x6 multi"></div>
+                    <div id="card" class="card6x6 multi"></div>
+                    <div id="card" class="card6x6 multi"></div>
+                    <div id="card" class="card6x6 multi"></div>
+                </div>
+             <!-- Multiplayer 6X6 scores start -->
+            </div>
+            <div class="playerscontainer">
+                <div id="player1" class="player_turn">
+                    <div class="scoreboard">
+                        <p class="p1">Player 1</p>
+                        <p class="p1_score">0</p>
+                    </div>
+                    <div class="current_turn">
+                        CURRENT TURN
+                    </div>
+                </div>
+                <div id="player2" class="player_turn">
+                    <div class="scoreboard">
+                        <p class="p2">Player 2</p>
+                        <p class="p2_score">0</p>
+                    </div>
+                    <div class="current_turn">
+                        CURRENT TURN
+                    </div>
+                </div>
+                <div id="player3" class="player_turn">
+                    <div class="scoreboard">
+                        <p class="p3">Player 3</p>
+                        <p class="p3_score">0</p>
+                    </div>
+                    <div class="current_turn">
+                        CURRENT TURN
+                    </div>
+                </div>
+                <div id="player4" class="player_turn">
+                    <div class="scoreboard">
+                        <p class="p4">Player 4</p>
+                        <p class="p4_score">0</p>
+                    </div>
+                    <div class="current_turn">
+                    CURRENT TURN
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-      <div class="playersselect">
-        <div class="playersselect_heading">
-          <h1>Number of Players</h1>
-        </div>
-        <div class="playersselect_btn">
-          <button Class="player1 selected" type="number">1</button>
-          <button class="players2" type="number">2</button>
-          <button class="players3" type="number">3</button>
-          <button class="players4" type="number">4</button>
-        </div>
-      </div>
-
-      <div class="gridsize">
-        <div class=gridsize_heading>
-          <h1>Grid Size</h1>
-        </div>
-        <div class="gridsize_btn">
-          <button class="fourbyfour selected" type="number">4x4</button>
-          <button class="sixbysix" type="number">6x6</button>
-        </div>
-      </div>
-
-      <div class="startgame">
-        <button class="startgame_btn" type="text">Start Game</button>
-      </div>
-
-
-  <!-- <!- - Game setup end --> 
-      </div>
-     </div>
-  </section>
-  <script src="game.js"></script>
+    <script src="game.js"></script>
 </body>
 </html>
-
-  
-  <!-- Multiplayer scores start -->
-
-  <!-- Solo game time and moves counter start -->
-<!-- 
-  Time -->
-  <!-- Time elapsed -->
-
-  <!-- Moves -->
-  <!-- Moves total -->
-
-  <!-- Solo game time and moves counter end -->
-
-  <!-- Game board end -->

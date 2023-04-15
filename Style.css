@@ -1,10 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap');
 
+**{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
 body{
     font-family: "Atkinson Hyperlegible";
     margin: 0;
     padding: 0;
-    background-color:rgba(21, 41, 56, 1);  
+    background-color:rgba(21, 41, 56, 1); 
 }
 
  .game{
@@ -19,8 +25,6 @@ body{
     height: 155px;
     width: 153px; 
 }
-
-
 
 .gametitle h1{
     text-align: center;
@@ -37,6 +41,10 @@ body{
     height: 532px;
     width: 644px;
     font-family: Atkinson Hyperlegible;
+}
+
+#gamesetup{
+    height: 100vh;
 }
 
  .theme{
@@ -155,21 +163,12 @@ body{
     background: #BCCED9;
 }
 
-.players2:hover{
-    cursor: pointer;
-    background: #6395B8;
-}
-
-.players3:hover{
-    cursor: pointer;
-    background: #6395B8;
-}
-
+.players2:hover,
+.players3:hover,
 .players4:hover{
     cursor: pointer;
     background: #6395B8;
 }
-
 
 .gridsize{
     height: 93px;
@@ -245,15 +244,18 @@ body{
     background: #FFB84A;
 }
 
-/* Game board 6x6 & 4x4*/
-.gameboard_6x6,.gameboard_4x4{
-    background: #FCFCFC;
-    margin: auto;
-    height: 1042px;
+#gameboard_6x6_start_solo,#gameboard_4x4_start_solo,
+#gameboard_4x4_start,#gameboard_6x6_start{
+    height: 100%;
 }
 
-.gameboard_6X6_header,
-.gameboard_4x4_header{
+/* Game board 6x6 & 4x4*/
+.gameboard{
+    background: #FCFCFC;
+    margin: auto;
+}
+
+.gameboard_header{
     width: 1110px;
     height: 52px;
     display: flex;
@@ -262,8 +264,7 @@ body{
     padding: 2em;
 }
 
-.gameboard_6X6_header_left,
-.gameboard_4x4_header_left{
+.gameboard_header_left{
     height: 50px;
     width: 153px;
     font-weight: 700;
@@ -272,16 +273,14 @@ body{
     color: #152938;
 }
 
-.gameboard_6X6_header_right,
-.gameboard_4x4_header_left{
+.gameboardheader_right{
     width: 292px;
     height: 52px;
     display: flex;
     justify-content: space-between;
 }
 
-.gameboard_6X6_header_right_restart_btn,
-.gameboard_4x4_header_right_restart_btn{
+.gameboard_header_right_restart_btn{
     height: 52px;
     width: 127px;
     font-weight: 700;
@@ -294,8 +293,8 @@ body{
     border: none;
 }
 
-.gameboard_6X6_header_right_newgame_btn,
-.gameboard_4x4_header_right_newgame_btn{
+.gameboard_header_right_newgame_btn
+{
     width: 149px;
     height: 52px;
     font-weight: 700;
@@ -319,7 +318,7 @@ body{
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
-.card6x6{
+.card6x6_solo, .card6x6_multi{
     width: 82px;
     height: 82px;
     background: #304859;
@@ -336,7 +335,7 @@ body{
     margin-top: 83px;
 }
 
-.player6x6_turn,.player4x4_turn{
+.player_turn{
     height: 72px;
     width: 255px;
     background: #DFE7EC;
@@ -345,7 +344,7 @@ body{
  
 }
 
-.scoreboard6x6,.scoreboard4x4{
+.scoreboard{
     /* width: 210px; */
     height: 72px;
     width: 255px;
@@ -354,8 +353,8 @@ body{
     margin: auto;
 }
 
-.p1_6x6,.p2_6x6,.p3_6x6,.p4_6x6,
-.p1_4x4,.p2_4x4,.p3_4x4,.p4_4x4{
+.p1,.p2,.p3,.p4
+{
     height: 22px;
     width: 70px;
     font-weight: 700;
@@ -364,10 +363,9 @@ body{
     margin: auto;
 }
 
-.p1_score_6x6,.p2_score_6x6,
-.p3_score_6x6,.p4_score_6x6,
-.p1_score_4x4,.p2_score_4x4,
-.p3_score_4x4,.p4_score_4x4{
+.p1_score,.p2_score,
+.p3_score,.p4_score
+{
     height: 40px;
     width: 21px;
     font-style: normal;
@@ -377,7 +375,7 @@ body{
     margin: auto;
 }
 
-.current_turn6x6,.current_turn4x4{
+.current_turn{
     height: 16px;
     /* width: 153px; */
     font-style: normal;
@@ -402,7 +400,7 @@ body{
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
-.card4x4{
+.card4x4_solo, .card4x4_multi{
     height: 118px;
     width: 118px;
     border-radius: 59px;
@@ -411,110 +409,12 @@ body{
 }
 
 /* Solo 6x6 & 4x4 */
-.gameboard_6x6_solo,
-.gameboard_4x4_solo{
+.gameboard_solo{
     background: #FCFCFC;
     margin: auto;
-    height: 1042px;
 }
 
-.gameboard_6X6_header_solo,
-.gameboard_4x4_header_solo{
-    width: 1110px;
-    height: 52px;
-    display: flex;
-    justify-content: space-between;
-    margin: auto;
-    padding: 2em;
-}
-
-.gameboard_6X6_header_left_solo,
-.gameboard_4x4_header_left_solo{
-    height: 50px;
-    width: 153px;
-    font-weight: 700;
-    font-size: 40px;
-    line-height: 50px;
-    color: #152938;
-}
-
-.gameboard_6X6_header_right_solo,
-.gameboard_4x4_header_right_solo{
-    width: 292px;
-    height: 52px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.gameboard_6X6_header_solo_right_restart_btn,
-.gameboard_4x4_header_solo_right_restart_btn{
-    height: 52px;
-    width: 127px;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 25px;
-    text-align: center;
-    color: #FCFCFC;
-    background: #FDA214;
-    border-radius: 26px;
-    border: none;
-}
-
-.gameboard_6X6_header_solo_right_newgame_btn,
-.gameboard_4x4_header_solo_right_newgame_btn{
-    width: 149px;
-    height: 52px;
-    font-weight: 700;
-    font-size: 20px;
-    text-align: center;
-    color: #304859;
-    background: #DFE7EC;
-    border-radius: 26px;
-    border: none;
-}
-
-.gameboard6x6_solo{
-    height: 572px;
-    width: 572px;
-    border-radius: 41px;
-    margin: auto;  
-}
-
-.gameboard4x4_solo{
-    height: 532px;
-    width: 532px;
-    border-radius: 59px;
-    margin: auto; 
-}
-
-.row6x6_solo{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-}
-
-.row4x4_solo{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-}
-
-.card6x6_solo{
-    width: 82px;
-    height: 82px;
-    background: #304859;
-    border-radius: 41px;
-    margin-bottom: 16px;
-}
-
-.card4x4_solo{
-    height: 118px;
-    width: 118px;
-    border-radius: 59px;
-    background: #304859;
-    margin-bottom: 20px;
-
-}
-
-.timermoves_6x6_solo,.timermoves_4x4_solo{
+.timermoves_solo{
     height: 72px;
     width: 540px;
     margin: auto;
@@ -523,7 +423,7 @@ body{
     margin-top: 106px;
 }
 
-.timer_6x6_solo,.timer_4x4_solo{
+.timer_solo{
     height: 72px;
     width: 255px;
     margin: auto;
@@ -533,7 +433,7 @@ body{
     justify-content: space-between;
 }
 
-.time_6x6_solo,.time_4x4_solo{
+.time_solo{
     height: 22px;
     width: 43px;
     font-style: normal;
@@ -543,7 +443,7 @@ body{
     margin: auto;
 }
 
-.timecount_solo_6x6,.timecount_solo_4x4{
+.timecount_solo{
     height: 40px;
     width: 64px;
     font-style: normal;
@@ -554,7 +454,7 @@ body{
     margin: auto;
 }
 
-.moves_6x6_solo,.moves_4x4_solo{
+.moves_solo{
     height: 72px;
     width: 255px;
     margin: auto;
@@ -564,7 +464,7 @@ body{
     border-radius: 10px;
 }
 
-.move_6x6_solo,.move_4x4_solo{
+.move_solo{
     height: 22px;
     width: 55px;
     font-style: normal;
@@ -574,7 +474,7 @@ body{
     margin: auto;
 }
 
-.movescount_6x6_solo,.movescount_4x4_solo{
+.movescount_solo{
     height: 40px;
     width: 21px;
     font-style: normal;
@@ -585,82 +485,6 @@ body{
     margin: auto;
 }
 
-/* winner */
-#winner{
-    background: #FCFCFC;
-}
-
-.winner{
-    width: 654px;
-    height: 702px;
-    background: #F2F2F2;
-    border-radius: 20px;
-    margin: auto;
-}
-
-.winner h1{
-    height: 60px;
-    width: 327px;
-    margin: auto;
-    padding-top: 0.5em;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 48px;
-    text-align: center;
-    color: #152938;
-}
-
-.winner p{
-    height: 22px;
-    width: 286px;
-    margin: auto;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 18px;
-    text-align: center;
-    color: #7191A5;
-}
-
-.winner_content{
-    width: 542px;
-    height: 444px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: 1fr;
-    justify-content: space-between;
-    
-}
-
-.scorechart{
-    width: 542px;
-    height: 336px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: 1fr;
-    justify-content: space-between;
-}
-
-.winner1,.winner2,
-.winner3,.winner4{
-    height: 72px;
-    width: 542px;
-}
-
-
-#winner_container{
-
-    display: flex;
-    justify-content: space-between;
-}
-
-.winner1{
-    background: #152938;
-    
-}
-
-.winner2,.winner3,.winner4{
-    background: #DFE7EC;
-}
 
 
 
