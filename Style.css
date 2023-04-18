@@ -7,13 +7,13 @@
 }
 
 body{
-    font-family: "Atkinson Hyperlegible";
+    font-family: Atkinson Hyperlegibl;
     margin: 0;
     padding: 0;
     background-color:rgba(21, 41, 56, 1); 
+    overflow-y: hidden;
 }
-
- .game{
+.game{
     margin: auto;
     width: 654px;
     height: 687px;
@@ -310,13 +310,16 @@ body{
     height: 572px;
     width: 572px;
     border-radius: 41px;
-    margin: auto;  
+    margin: auto; 
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); 
+    grid-template-rows: repeat(6, 1fr);
 }
 
-.row6x6{
+/* .row6x6{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-}
+} */
 
 .card6x6_solo, .card6x6_multi{
     width: 82px;
@@ -324,6 +327,8 @@ body{
     background: #304859;
     border-radius: 41px;
     margin-bottom: 16px;
+    cursor: pointer;
+    transition: 0.8s;
 }
 
 .playerscontainer{
@@ -393,12 +398,16 @@ body{
     width: 532px;
     border-radius: 59px;
     margin: auto;  
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
 }
 
-.row4x4{
-    display: grid;
+/* .row4x4{
+    /* display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-}
+    justify-content: center; */
+
 
 .card4x4_solo, .card4x4_multi{
     height: 118px;
@@ -406,6 +415,11 @@ body{
     border-radius: 59px;
     background: #304859;
     margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 /* Solo 6x6 & 4x4 */
@@ -484,6 +498,83 @@ body{
     color: #304859;
     margin: auto;
 }
+
+.card4x4_solo i.fa, .card4x4_multi i.fa {
+    font-size: 56px;
+    line-height: 69px;
+    display: flex;
+    color: #F2F2F2;
+    opacity: 0;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+
+.card6x6_solo i.fa, .card6x6_multi i.fa{
+    font-size: 40px;
+    line-height: 80px;
+    display: flex;
+    color: #F2F2F2;
+    opacity: 0;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+
+}
+
+.card6x6_multi[data-value],.card6x6_solo[data-value] {
+    font-family: 'Atkinson Hyperlegible';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 55px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    color: #FCFCFC;
+  }
+
+.card4x4_multi[data-value],.card4x4_solo[data-value] {
+    font-family: 'Atkinson Hyperlegible';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 55px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    color: #FCFCFC;
+    /* background-color:#BCCED9; */
+  }
+
+  /* .matched-card {
+    background-color: #FDA214;
+  } */
+
+/* @media only screen and (min-width: 768px) and (max-width: 1104px){
+    
+    body{
+        width: auto;
+        height: auto;
+    }
+}
+
+@media only screen and (min-width: 300px) and (max-width: 420px){
+    
+    body{
+        width: auto;
+        height: auto;
+    }
+
+    .game{
+        width: 327px;
+        height: 386px;
+    }
+} */
+
 
 
 

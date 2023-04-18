@@ -1,3 +1,4 @@
+// declaring variables
 const gameSetup = document.getElementById("gamesetup");
 const gameboard4x4Solo = document.getElementById("gameboard_4x4_start_solo");
 const gameboard6x6Solo = document.getElementById("gameboard_6X6_start_solo");
@@ -32,6 +33,7 @@ let theme = "number";
 let gridSize = "4x4";
 let numPlayers = 1;
 
+// selecting buttons to display the gameSetup function
 numberBtn.addEventListener("click", function() {
   theme = "number";
   iconBtn.classList.remove("selected");
@@ -69,7 +71,7 @@ players3Btn.addEventListener("click", function() {
   players2Btn.classList.remove("selected");
   players3Btn.classList.add("selected");
   players4Btn.classList.remove("selected");
-  player3.style.display = "none";
+  player4.style.display = "none";
 });
 
 players4Btn.addEventListener("click", function() {
@@ -93,75 +95,184 @@ sixBySixBtn.addEventListener("click", function() {
 });
 
 startGameBtn.addEventListener("click", function() {
-  setupGame(theme, gridSize, numPlayers);
+  if (theme && gridSize && numPlayers) {
+    setupGame(theme, gridSize, numPlayers);
+  } else {
+    alert("Please select a button");
+  }
 });
 
+// display gameboard according the selected theme,gridsize and number of players
 function setupGame(theme, gridSize, numPlayers) {
-  if ((theme === "number" || theme === "icon") && gridSize === "6x6" && (numPlayers === 2 || numPlayers === 3 || numPlayers === 4 )) {
+  if ((theme === "icon") && gridSize === "6x6" && (numPlayers === 2 || numPlayers === 3 || numPlayers === 4 )) {
     gameboard6x6Multi.style.display = "block";
     gameSetup.style.display = "none";
     gameboard4x4Multi.style.display = "none";
     gameboard6x6Solo.style.display = "none";
     gameboard4x4Solo.style.display = "none";
-  } else if ((theme === "number" || theme === "icon") && gridSize === "6x6" && numPlayers === 1) {
+    const iconValues6x6Multi = iconValues.slice(18, 36).concat(iconValues.slice(18, 36)).sort(() => Math.random() - 0.5);
+    const iconCards6x6Multi = document.querySelectorAll(".card6x6_multi");
+    iconCards6x6Multi.forEach((card, index) => {
+    const icon4 = document.createElement('i');
+    icon4.className = "fa " + iconValues6x6Multi[index];
+    card.appendChild(icon4);
+    });
+  } else if(theme === "number" && gridSize === "6x6" && (numPlayers === 2 || numPlayers === 3 || numPlayers === 4 )) {
+    gameboard6x6Multi.style.display = "block";
+    gameSetup.style.display = "none";
+    gameboard4x4Multi.style.display = "none";
+    gameboard6x6Solo.style.display = "none";
+    gameboard4x4Solo.style.display = "none";
+    const numberValues6x6Multi = numberValues.slice(18, 36).concat(numberValues.slice(18, 36)).sort(() => Math.random() - 0.5);
+    const numberCards6x6Multi = document.querySelectorAll( ".card6x6_multi");
+    numberCards6x6Multi.forEach((card, index) => {
+    card.dataset.value = numberValues6x6Multi[index];
+    });
+  } else if (theme === "icon" && gridSize === "6x6" && numPlayers === 1) {
     gameboard6x6Multi.style.display = "none";
     gameSetup.style.display = "none";
     gameboard4x4Multi.style.display = "none";
     gameboard6x6Solo.style.display = "block";
     gameboard4x4Solo.style.display = "none";
-  } else if((theme === "number" || theme === "icon") && gridSize === "4x4" && numPlayers === 1) {
+    const iconValues6x6Solo = iconValues.slice(0, 18).concat(iconValues.slice(0, 18)).sort(() => Math.random() - 0.5);
+    const iconCards6x6Solo = document.querySelectorAll(".card6x6_solo");
+    iconCards6x6Solo.forEach((card, index) => {
+    const icon3 = document.createElement('i');
+    icon3.className = "fa " + iconValues6x6Solo[index];
+    card.appendChild(icon3);
+    });
+  } else if (theme === "number" && gridSize === "6x6" && numPlayers === 1) {
+    gameboard6x6Multi.style.display = "none";
+    gameSetup.style.display = "none";
+    gameboard4x4Multi.style.display = "none";
+    gameboard6x6Solo.style.display = "block";
+    gameboard4x4Solo.style.display = "none";
+    const numberValues6x6Solo = numberValues.slice(0, 18).concat(numberValues.slice(0, 18)).sort(() => Math.random() - 0.5);
+    const numberCards6x6Solo = document.querySelectorAll(".card6x6_solo");
+    numberCards6x6Solo.forEach((card, index) => {
+    card.dataset.value = numberValues6x6Solo[index];
+    });
+  } else if(theme === "icon" && gridSize === "4x4" && numPlayers === 1) {
     gameboard6x6Multi.style.display = "none";
     gameSetup.style.display = "none";
     gameboard4x4Multi.style.display = "none";
     gameboard6x6Solo.style.display = "none";
     gameboard4x4Solo.style.display = "block";
-  } else if ((theme === "number" || theme === "icon") && gridSize === "4x4"&& (numPlayers === 2 || numPlayers === 3 || numPlayers === 4)) {
+    const iconValues4x4Solo = iconValues.slice(0, 8).concat(iconValues.slice(0, 8)).sort(() => Math.random() - 0.5);
+    const iconCards4x4Solo = document.querySelectorAll(".card4x4_solo");
+    iconCards4x4Solo.forEach((card, index) => {
+    const icon = document.createElement('i');
+    icon.className = "fa " + iconValues4x4Solo[index];
+    card.appendChild(icon);
+    });
+  } else if(theme === "number" && gridSize === "4x4" && numPlayers === 1) {
+    gameboard6x6Multi.style.display = "none";
+    gameSetup.style.display = "none";
+    gameboard4x4Multi.style.display = "none";
+    gameboard6x6Solo.style.display = "none";
+    gameboard4x4Solo.style.display = "block";
+    const numberValues4x4Solo = numberValues.slice(0, 8).concat(numberValues.slice(0, 8)).sort(() => Math.random() - 0.5);
+    const numberCards4x4Solo = document.querySelectorAll(".card4x4_solo");
+    numberCards4x4Solo.forEach((card, index) => {
+    card.dataset.value = numberValues4x4Solo[index];
+    });
+  } else if (theme === "icon" && gridSize === "4x4"&& (numPlayers === 2 || numPlayers === 3 || numPlayers === 4)) {
     gameboard6x6Multi.style.display = "none";
     gameSetup.style.display = "none";
     gameboard4x4Multi.style.display = "block";
     gameboard6x6Solo.style.display = "none";
     gameboard4x4Solo.style.display = "none";
+    const iconValues4x4Multi = iconValues.slice(9, 17).concat(iconValues.slice(9, 17)).sort(() => Math.random() - 0.5);
+    const iconCards4x4Multi = document.querySelectorAll(".card4x4_multi");
+    iconCards4x4Multi.forEach((card, index) => {
+    const icon2 = document.createElement('i');
+    icon2.className = "fa " + iconValues4x4Multi[index];
+    card.appendChild(icon2);
+    });
+  } else if (theme === "number" && gridSize === "4x4" && (numPlayers === 2 || numPlayers === 3 || numPlayers === 4)) {
+    gameboard6x6Multi.style.display = "none";
+    gameSetup.style.display = "none";
+    gameboard4x4Multi.style.display = "block";
+    gameboard6x6Solo.style.display = "none";
+    gameboard4x4Solo.style.display = "none";
+    const numberValues4x4Multi = numberValues.slice(9, 17).concat(numberValues.slice(9, 17)).sort(() => Math.random() - 0.5);
+    const numberCards4x4Multi = document.querySelectorAll( ".card4x4_multi");
+    numberCards4x4Multi.forEach((card, index) => {
+    card.dataset.value = numberValues4x4Multi[index];
+    });
+
   } else(alert("select a button"))
 }
 
-const numberValues = [1,2,3,4,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22];
-const iconValues  = ["fa-anchor","fa-bicycle","fa-bomb","fa-camera-retro","fa-diamond","fa-gavel","fa-heart","fa-leaf","fa-moon","fa-paper-plane-o","fa-paw","fa-rocket","fa-ship","fa-snowflake-o","fa-sun-o","fa-tree","fa-trophy", "fa-umbrella"];
+// // Number values and icon value
+const numberValues = [1,2,3,4,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37];
+const iconValues = ["fa-address-book","fa-bell","fa-calendar","fa-music","fa-car","fa-star","fa-check","fa-cloud","fa-cog","fa-comment","fa-envelope","fa-file","fa-flag","fa-folder","fa-globe","fa-heart","fa-home","fa-image","fa-info","fa-key","fa-lock","fa-map","fa-phone","fa-play","fa-plus","fa-question","fa-search","fa-server","fa-shopping-cart","fa-signal","fa-star","fa-tag","fa-thumbs-up","fa-times","fa-trash","fa-user","fa-video","fa-wrench"];
 
-if(gridSize === "4x4" && theme === "number" && (numPlayers === 1 || numPlayers === 2 || numPlayers === 3 || numPlayers === 4 )){
-  let numberValues4x4 = numberValues.slice(0, 8).concat(numberValues.slice(0, 8)).sort(() => Math.random() - 0.5);
-  // console.log(numberValues4x4);
-  let cards = document.querySelectorAll(".card4x4_solo");
-  cards.forEach((card, index) => {
-    console.log(index);
-    card.dataset.value = numberValues4x4[index];
-  });
-  console.log(cards);
-} else if(gridSize === "6x6" && theme === "number" && (numPlayers === 1 || numPlayers === 2 || numPlayers === 3 || numPlayers === 4 )){
-  let numberValues6x6 = numberValues.slice(0, 8).concat(numberValues.slice(0, 8)).sort(() => Math.random() - 0.5);
- 
+// duplicate,shuffle and assign icon values to the 4x4 and 6x6 boards
+// const iconValues4x4Solo = iconValues.slice(0, 8).concat(iconValues.slice(0, 8)).sort(() => Math.random() - 0.5);
+// const iconCards4x4Solo = document.querySelectorAll(".card4x4_solo");
+// iconCards4x4Solo.forEach((card, index) => {
+//   const icon = document.createElement('i');
+//   icon.className = "fa " + iconValues4x4Solo[index];
+//   card.appendChild(icon);
+// });
 
-  let cards = document.querySelectorAll(".card6x6 solo");
-  cards.forEach((card, index) => {
-    card.dataset.value = numberValues6x6[index];
-  });
-} else if(gridSize === "4x4" && theme === "icon" && (numPlayers === 1 || numPlayers === 2 || numPlayers === 3 || numPlayers === 4 )){
-  let iconValues4x4 = iconValues.slice(0, 8).concat(iconValues.slice(0, 8)).sort(() => Math.random() - 0.5);
-  let cards = document.querySelectorAll(".card4x4 multi");
-  cards.forEach((card, index) => {
-    card.dataset.value = iconValues4x4[index];
-  });
-} else if(gridSize === "6x6" && theme === "icon" && (numPlayers === 1 || numPlayers === 2 || numPlayers === 3 || numPlayers === 4 )){
-  let iconValues6x6 = iconValues.slice(0, 8).concat(iconValues.slice(0, 8)).sort(() => Math.random() - 0.5);
-  let cards = document.querySelectorAll(".card6x6 multi");
-  cards.forEach((card, index) => {
-    card.dataset.value = iconValues6x6[index];
-  });
-}
+// const iconValues4x4Multi = iconValues.slice(9, 17).concat(iconValues.slice(9, 17)).sort(() => Math.random() - 0.5);
+// const iconCards4x4Multi = document.querySelectorAll(".card4x4_multi");
+// iconCards4x4Multi.forEach((card, index) => {
+//   const icon2 = document.createElement('i');
+//   icon2.className = "fa " + iconValues4x4Multi[index];
+//   card.appendChild(icon2);
+// });
 
+// const iconValues6x6Solo = iconValues.slice(0, 18).concat(iconValues.slice(0, 18)).sort(() => Math.random() - 0.5);
+// const iconCards6x6Solo = document.querySelectorAll(".card6x6_solo");
+// iconCards6x6Solo.forEach((card, index) => {
+//   const icon3 = document.createElement('i');
+//   icon3.className = "fa " + iconValues6x6Solo[index];
+//   card.appendChild(icon3);
+// });
+
+// const iconValues6x6Multi = iconValues.slice(18, 36).concat(iconValues.slice(18, 36)).sort(() => Math.random() - 0.5);
+// const iconCards6x6Multi = document.querySelectorAll(".card6x6_multi");
+// iconCards6x6Multi.forEach((card, index) => {
+//   const icon4 = document.createElement('i');
+//   icon4.className = "fa " + iconValues6x6Multi[index];
+//   card.appendChild(icon4);
+// });
+
+// duplicate,shuffle and assign number values to the 4x4 and 6x6 boards
+// const numberValues4x4Solo = numberValues.slice(0, 8).concat(numberValues.slice(0, 8)).sort(() => Math.random() - 0.5);
+// const numberCards4x4Solo = document.querySelectorAll(".card4x4_solo");
+// numberCards4x4Solo.forEach((card, index) => {
+//   card.dataset.value = numberValues4x4Solo[index];
+// });
+
+// const numberValues4x4Multi = numberValues.slice(9, 17).concat(numberValues.slice(9, 17)).sort(() => Math.random() - 0.5);
+// const numberCards4x4Multi = document.querySelectorAll( ".card4x4_multi");
+// numberCards4x4Multi.forEach((card, index) => {
+//   card.dataset.value = numberValues4x4Multi[index];
+// });
+
+// const numberValues6x6Solo = numberValues.slice(0, 18).concat(numberValues.slice(0, 18)).sort(() => Math.random() - 0.5);
+// const numberCards6x6Solo = document.querySelectorAll(".card6x6_solo");
+// numberCards6x6Solo.forEach((card, index) => {
+//   card.dataset.value = numberValues6x6Solo[index];
+// });
+
+// const numberValues6x6Multi = numberValues.slice(18, 36).concat(numberValues.slice(18, 36)).sort(() => Math.random() - 0.5);
+// const numberCards6x6Multi = document.querySelectorAll( ".card6x6_multi");
+// numberCards6x6Multi.forEach((card, index) => {
+//   card.dataset.value = numberValues6x6Multi[index];
+// });
+
+
+
+// click first and second card,checking for match or not
 let clickedCards = 0;
 let firstCard, secondCard;
 
-let cards = document.querySelectorAll(".card4x4_solo,.card4x4_multi");
+let cards = document.querySelectorAll(".card4x4_solo,.card4x4_multi,.card6x6_multi,.card6x6_solo");
 
 cards.forEach(card => {
   card.addEventListener("click", () => {
@@ -170,48 +281,36 @@ cards.forEach(card => {
 
       if (clickedCards === 1) {
         firstCard = card;
+      
+        // card.textContent = card.dataset.value;
+        firstCard.querySelector("i").style.opacity = 1;
         card.style.backgroundColor = "#BCCED9";
-        card.textContent = card.dataset.value;
-        card.style.display = "flex";
-        card.style.alignItems = "center";
-        card.style.justifyContent = "center";
-        card.style.textAlign = "center";
-        card.style.fontFamily = "Atkinson Hyperlegible";
-        card.style.fontStyle = "normal";
-        card.style.fontWeight = "700";
-        card.style.fontSize = "56px";
-        card.style.lineHeight = "69px";
-        card.style.color = "#FCFCFC";
-  
+        
       } else {
         secondCard = card;
+        // card.textContent = card.dataset.value;
+        secondCard.querySelector("i").style.opacity = 1;
         card.style.backgroundColor = "#BCCED9";
-        card.textContent = card.dataset.value;
-        card.style.align = "center";
-        card.style.display = "flex";
-        card.style.alignItems = "center";
-        card.style.justifyContent = "center";
-        card.style.textAlign = "center";
-        card.style.fontFamily = "Atkinson Hyperlegible";
-        card.style.fontStyle = "normal";
-        card.style.fontWeight = "700";
-        card.style.fontSize = "56px";
-        card.style.lineHeight = "69px";
-        card.style.color = "#FCFCFC";
-
-        if (firstCard.dataset.value === secondCard.dataset.value) {
+       
+        if (firstCard.querySelector("i").className === secondCard.querySelector("i").className) {
           // Match
-          secondCard.style.backgroundColor = "#FDA214";
+          card.classList.add("matched-card");
           firstCard.style.backgroundColor = "#FDA214";
+          secondCard.style.backgroundColor = "#FDA214";
           firstCard.removeEventListener("click", null);
           secondCard.removeEventListener("click", null);
         } else {
           // No match
           setTimeout(() => {
+            // firstCard.textContent = "";
+            // secondCard.textContent = "";
             firstCard.style.backgroundColor = "";
             secondCard.style.backgroundColor = "";
-            firstCard.textContent = ""; // remove the displayed dataset.value
-            secondCard.textContent = ""; // remove the displayed dataset.value
+            // firstCard.textContent = ""; // remove the displayed dataset.value
+            // secondCard.textContent = ""; // remove the displayed dataset.value
+            firstCard.querySelector("i").style.opacity = 0;
+            secondCard.querySelector("i").style.opacity = 0;
+            clickedCards = 0;
           }, 200);
         }
 
@@ -221,9 +320,9 @@ cards.forEach(card => {
   });
 });
 
-
-const timecount_solo = document.querySelector('.timecount_solo');
-const movescount_solo = document.querySelector('.movescount_solo');
+// the time and move set up
+const timecount_solo = document.querySelector(".timecount_solo");
+const movescount_solo = document.querySelector(".movescount_solo");
 
 // Set initial timer and moves count
 let timer = 0;
@@ -243,5 +342,5 @@ function incrementMoves() {
 
 // Add an event listener to each card element to increment the moves count when clicked
 cards.forEach(card => {
-  card.addEventListener('click', incrementMoves);
+  card.addEventListener("click", incrementMoves);
 });
