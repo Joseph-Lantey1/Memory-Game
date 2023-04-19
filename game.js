@@ -18,8 +18,11 @@ const player1 = document.getElementById("player1");
 const player2 = document.getElementById("player2");
 const player3 = document.getElementById("player3");
 const player4 = document.getElementById("player4");
-const restartBtn = document.querySelector('.gameboard_header_right_restart_btn');
-const newGameBtn = document.querySelector('.gameboard_header_right_newgame_btn');
+const restartBtn = document.querySelector(".gameboard_header_right_restart_btn");
+const newGameBtn1 = document.querySelector(".gameboard_header_right_newgame_btn1");
+const newGameBtn2 = document.querySelector(".gameboard_header_right_newgame_btn2");
+const newGameBtn3= document.querySelector(".gameboard_header_right_newgame_btn3");
+const newGameBtn4 = document.querySelector(".gameboard_header_right_newgame_btn4");
 
 
 // Number values and icon value
@@ -485,6 +488,7 @@ function setupGame(theme, gridSize, numPlayers) {
       card.dataset.value = numberValues4x4Multi[index];
       });
 
+
       cards.forEach(card => {
         card.addEventListener("click", () => {
           if (clickedCards < 2) {
@@ -522,7 +526,7 @@ function setupGame(theme, gridSize, numPlayers) {
           }
         });
       });
-
+        
   } else(alert("select a button"))
 }
 
@@ -571,3 +575,144 @@ function updateMoves() {
 cards.forEach(card => {
   card.addEventListener("click", updateMoves);
 });
+
+// newgame button click
+newGameBtn1.addEventListener("click", () => {
+  location.reload();
+});
+newGameBtn2.addEventListener("click", () => {
+  location.reload();
+});
+newGameBtn3.addEventListener("click", () => {
+  location.reload();
+});
+newGameBtn4.addEventListener("click", () => {
+  location.reload();
+});
+
+// function newGameBtn(){
+//   gameSetup.style.display = "block";
+// }
+
+// function newGameBtn() {
+//   btn.addEventListener("click", () => {
+//     // stopTimer();
+//     // movesCount.innerText = 0;
+//     // movesCount6x6.innerText = 0;
+//     // timeCount.innerText = "0:00";
+//     // timeCount6x6.innerText = "0:00";
+//     // clickedCards = 0;
+//     // gameSetup.style.display = "block";
+//     // firstCard.style.backgroundColor = "";
+//     // secondCard.style.backgroundColor = "";
+//     // firstCard.textContent = ""; // remove the displayed dataset.value
+//     // secondCard.textContent = "";
+//   });
+// }
+// Take user back to game setup page when new game button is clicked
+// newGameBtn1.addEventListener("click", () => {
+//   gameboard6x6Multi.style.display = "none";
+//   gameSetup.style.display = "block";
+//   gameboard4x4Multi.style.display = "none";
+//   gameboard6x6Solo.style.display = "none";
+//   gameboard4x4Solo.style.display = "none";
+// });
+// newGameBtn2.addEventListener("click", () => {
+//   gameboard6x6Multi.style.display = "none";
+//   gameSetup.style.display = "block";
+//   gameboard4x4Multi.style.display = "none";
+//   gameboard6x6Solo.style.display = "none";
+//   gameboard4x4Solo.style.display = "none";
+// });
+// newGameBtn3.addEventListener("click", () => {
+//   gameboard6x6Multi.style.display = "none";
+//   gameSetup.style.display = "block";
+//   gameboard4x4Multi.style.display = "none";
+//   gameboard6x6Solo.style.display = "none";
+//   gameboard4x4Solo.style.display = "none";
+// });
+// newGameBtn4.addEventListener("click", () => {
+//   gameboard6x6Multi.style.display = "none";
+//   gameSetup.style.display = "block";
+//   gameboard4x4Multi.style.display = "none";
+//   gameboard6x6Solo.style.display = "none";
+//   gameboard4x4Solo.style.display = "none";
+// });
+
+// function newGameBtn () {
+//   gameboard6x6Multi.style.display = "none";
+//   gameboard4x4Multi.style.display = "none";
+//   gameboard6x6Solo.style.display = "none";
+//   gameboard4x4Solo.style.display = "none";
+//   gameSetup.style.display = "block";
+//   stopTimer(); // Stop the timer
+//   // time = 0; // Reset the time
+//   moves = 0; // Reset the moves count
+//   // movesCount.innerText = moves;
+//   // movesCount6x6.innerText = moves;
+//   // timeCount.innerText = "0:00";
+//   // timeCount6x6.innerText = "0:00";
+//   // firstClick = false;
+//   cards.forEach(card => {
+//     // card.classList.remove("matched-card");
+//     card.style.backgroundColor = "";
+//     // card.querySelector("i").style.opacity = 0;
+//     // card.addEventListener("click", null);
+//     card.textContent = "";
+//   })
+// };
+
+// newGameBtn1.addEventListener("click", newGameBtn);
+// newGameBtn2.addEventListener("click", newGameBtn);
+// newGameBtn3.addEventListener("click", newGameBtn);
+// newGameBtn4.addEventListener("click", newGameBtn);
+
+// newGameBtn.addEventListener("click", () => {
+//   gameboard6x6Multi.style.display = "none";
+//   gameboard4x4Multi.style.display = "none";
+//   gameboard6x6Solo.style.display = "none";
+//   gameboard4x4Solo.style.display = "none";
+//   gameSetup.style.display = "block";
+//   stopTimer(); // Stop the timer
+//   time = 0; // Reset the time
+//   moves = 0; // Reset the moves count
+//   movesCount.innerText = moves;
+//   movesCount6x6.innerText = moves;
+//   timeCount.innerText = "0:00";
+//   timeCount6x6.innerText = "0:00";
+//   const numberCards4x4Multi = document.querySelectorAll(".card4x4_multi");
+//   numberCards4x4Multi.forEach((card) => {
+//     card.classList.remove("matched-card");
+//     card.style.backgroundColor = "";
+//     card.textContent = "";
+//   });
+//   const numberCards6x6Multi = document.querySelectorAll(".card6x6_multi");
+//   numberCards6x6Multi.forEach((card) => {
+//     card.classList.remove("matched-card");
+//     card.style.backgroundColor = "";
+//     card.textContent = "";
+//   });
+// });
+
+// const newGameBtn = document.querySelector("#newgamebtn");
+
+// newGameBtn.addEventListener("click", () => {
+//   // reset the game state
+//   time = 0;
+//   moves = 0;
+//   firstClick = false;
+//   stopTimer();
+//   cards.forEach(card => {
+//     card.classList.remove("matched-card");
+//     card.style.backgroundColor = "";
+//     card.querySelector("i").style.opacity = 0;
+//     card.addEventListener("click", null);
+//   });
+
+//   // show the game setup
+//   gameSetup.style.display = "block";
+//   gameboard4x4Multi.style.display = "none";
+//   gameboard4x4Solo.style.display = "none";
+//   gameboard6x6Multi.style.display = "none";
+//   gameboard6x6Solo.style.display = "none";
+// });

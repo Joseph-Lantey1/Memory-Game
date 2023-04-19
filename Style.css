@@ -293,8 +293,13 @@ body{
     border: none;
 }
 
-.gameboard_header_right_newgame_btn
-{
+.gameboard_header_right_restart_btn:hover{
+    cursor: pointer;
+    background-color: #FFB84A;
+}
+
+.gameboard_header_right_newgame_btn1,.gameboard_header_right_newgame_btn2,
+.gameboard_header_right_newgame_btn3,.gameboard_header_right_newgame_btn4{
     width: 149px;
     height: 52px;
     font-weight: 700;
@@ -306,6 +311,12 @@ body{
     border: none;
 }
 
+.gameboard_header_right_newgame_btn1:hover,.gameboard_header_right_newgame_btn2:hover,
+.gameboard_header_right_newgame_btn3:hover,.gameboard_header_right_newgame_btn4:hover{
+    cursor: pointer;
+    background-color: #6395B8;
+    color: white;
+}
 .gameboard6x6{
     height: 572px;
     width: 572px;
