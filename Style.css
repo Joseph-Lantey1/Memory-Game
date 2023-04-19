@@ -457,7 +457,7 @@ body{
     margin: auto;
 }
 
-.timecount_solo{
+.timecount_solo,.timecount_solo6x6{
     height: 40px;
     width: 64px;
     font-style: normal;
@@ -488,7 +488,7 @@ body{
     margin: auto;
 }
 
-.movescount_solo{
+.movescount_solo, .movescount_solo6x6{
     height: 40px;
     width: 21px;
     font-style: normal;
