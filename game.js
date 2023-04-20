@@ -18,14 +18,23 @@ const player1 = document.getElementById("player1");
 const player2 = document.getElementById("player2");
 const player3 = document.getElementById("player3");
 const player4 = document.getElementById("player4");
-const restartBtn = document.querySelector(".gameboard_header_right_restart_btn");
+const player14x4 = document.getElementById("player1_4x4");
+const player24x4 = document.getElementById("player2_4x4");
+const player34x4 = document.getElementById("player3_4x4");
+const player44x4 = document.getElementById("player4_4x4");
+const player16x6 = document.getElementById("player16x6");
+const player26x6 = document.getElementById("player26x6");
+const player36x6 = document.getElementById("player36x6");
+const player46x6 = document.getElementById("player46x6");
+const restartBtn1 = document.querySelector(".gameboard_header_right_restart_btn1");
+const restartBtn2 = document.querySelector(".gameboard_header_right_restart_btn2");
+const restartBtn3 = document.querySelector(".gameboard_header_right_restart_btn3");
+const restartBtn4 = document.querySelector(".gameboard_header_right_restart_btn4");
 const newGameBtn1 = document.querySelector(".gameboard_header_right_newgame_btn1");
 const newGameBtn2 = document.querySelector(".gameboard_header_right_newgame_btn2");
 const newGameBtn3= document.querySelector(".gameboard_header_right_newgame_btn3");
 const newGameBtn4 = document.querySelector(".gameboard_header_right_newgame_btn4");
-const players = document.querySelector(".player.turn");
-
-
+const currentTurn = document.querySelectorAll(".current_turn");
 
 // Number values and icon value
 const numberValues = [1,2,3,4,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37];
@@ -73,7 +82,25 @@ players2Btn.addEventListener("click", function() {
   players4Btn.classList.remove("selected");
   player3.style.display = "none";
   player4.style.display = "none";
+});
 
+players2Btn.addEventListener("click", function() {
+  numPlayers = 2;
+  player1Btn.classList.remove("selected");
+  players2Btn.classList.add("selected");
+  players3Btn.classList.remove("selected");
+  players4Btn.classList.remove("selected");
+  player36x6.style.display = "none";
+  player46x6.style.display = "none";
+});
+players2Btn.addEventListener("click", function() {
+  numPlayers = 2;
+  player1Btn.classList.remove("selected");
+  players2Btn.classList.add("selected");
+  players3Btn.classList.remove("selected");
+  players4Btn.classList.remove("selected");
+  player34x4.style.display = "none";
+  player44x4.style.display = "none";
 });
 
 players3Btn.addEventListener("click", function() {
@@ -83,6 +110,23 @@ players3Btn.addEventListener("click", function() {
   players3Btn.classList.add("selected");
   players4Btn.classList.remove("selected");
   player4.style.display = "none";
+});
+players3Btn.addEventListener("click", function() {
+  numPlayers = 3;
+  player1Btn.classList.remove("selected");
+  players2Btn.classList.remove("selected");
+  players3Btn.classList.add("selected");
+  players4Btn.classList.remove("selected");
+  player44x4.style.display = "none";
+});
+
+players3Btn.addEventListener("click", function() {
+  numPlayers = 3;
+  player1Btn.classList.remove("selected");
+  players2Btn.classList.remove("selected");
+  players3Btn.classList.add("selected");
+  players4Btn.classList.remove("selected");
+  player46x6.style.display = "none";
 });
 
 players4Btn.addEventListener("click", function() {
@@ -266,6 +310,8 @@ function setupGame(theme, gridSize, numPlayers) {
                   firstCard.querySelector("i").style.opacity = 0;
                   secondCard.querySelector("i").style.opacity = 0;
                   clickedCards = 0;
+                  player16x6.remove.classList("currentplayer");
+                  player26x6.add.classList("currentplayer");
                 }, 200);
               }
               clickedCards = 0;
@@ -337,6 +383,28 @@ function setupGame(theme, gridSize, numPlayers) {
       card.dataset.value = numberValues6x6Multi[index];
       });
 
+      let players = [player16x6,player26x6,player36x6,player46x6]
+      let currentPlayer = 0;
+
+      function switchPlayer() {
+        let previousPlayer = currentPlayer;
+        if (previousPlayer < 0) {
+          previousPlayer = players.length - 1;
+        }
+        // Remove current player styling
+        players[previousPlayer].classList.remove('currentplayer');
+        players[previousPlayer].querySelector(".current_turn").style.visibility = "hidden";
+
+        // Increment player
+        currentPlayer++;
+        if (currentPlayer >= players.length) {
+          currentPlayer = 0;
+        }
+        // Add new current player styling
+        players[currentPlayer].classList.add('currentplayer');
+        players[currentPlayer].querySelector(".current_turn").style.visibility = "visible";
+        }
+
       cards.forEach(card => {
         card.addEventListener("click", () => {
           if (clickedCards < 2) {
@@ -354,6 +422,8 @@ function setupGame(theme, gridSize, numPlayers) {
               if (firstCard.dataset.value === secondCard.dataset.value) {
                 // Match
                 card.classList.add("matched-card");
+                let score = players[currentPlayer].querySelector(".score").textContent
+                players[currentPlayer].querySelector(".score").textContent = parseInt(score) + 1;
                 firstCard.style.backgroundColor = "#FDA214";
                 secondCard.style.backgroundColor = "#FDA214";
                 firstCard.removeEventListener("click", null);
@@ -363,9 +433,10 @@ function setupGame(theme, gridSize, numPlayers) {
                 setTimeout(() => {
                   firstCard.style.backgroundColor = "";
                   secondCard.style.backgroundColor = "";
-                  firstCard.textContent = ""; // remove the displayed dataset.value
-                  secondCard.textContent = ""; // remove the displayed dataset.value
+                  firstCard.textContent = ""; 
+                  secondCard.textContent = "";  
                   clickedCards = 0;
+                  switchPlayer();
                 }, 200);
               }
       
@@ -388,6 +459,28 @@ function setupGame(theme, gridSize, numPlayers) {
       icon4.className = "fa " + iconValues6x6Multi[index];
       card.appendChild(icon4);
       });
+
+      let players = [player16x6,player26x6,player36x6,player46x6]
+      let currentPlayer = 0;
+
+      function switchPlayer() {
+        let previousPlayer = currentPlayer;
+        if (previousPlayer < 0) {
+          previousPlayer = players.length - 1;
+        }
+        // Remove current player styling
+        players[previousPlayer].classList.remove('currentplayer');
+        players[previousPlayer].querySelector(".current_turn").style.visibility = "hidden";
+
+        // Increment player
+        currentPlayer++;
+        if (currentPlayer >= players.length) {
+          currentPlayer = 0;
+        }
+        // Add new current player styling
+        players[currentPlayer].classList.add('currentplayer');
+        players[currentPlayer].querySelector(".current_turn").style.visibility = "visible";
+        }
       
       cards.forEach(card => {
         card.addEventListener("click", () => {
@@ -406,6 +499,8 @@ function setupGame(theme, gridSize, numPlayers) {
               if (firstCard.querySelector("i").className === secondCard.querySelector("i").className) {
                 // Match
                 card.classList.add("matched-card");
+                let score = players[currentPlayer].querySelector(".score").textContent
+                players[currentPlayer].querySelector(".score").textContent = parseInt(score) + 1;
                 firstCard.style.backgroundColor = "#FDA214";
                 secondCard.style.backgroundColor = "#FDA214";
                 firstCard.removeEventListener("click", null);
@@ -418,6 +513,7 @@ function setupGame(theme, gridSize, numPlayers) {
                   firstCard.querySelector("i").style.opacity = 0;
                   secondCard.querySelector("i").style.opacity = 0;
                   clickedCards = 0;
+                  switchPlayer();
                 }, 200);
               }
               clickedCards = 0;
@@ -440,6 +536,29 @@ function setupGame(theme, gridSize, numPlayers) {
       icon2.className = "fa " + iconValues4x4Multi[index];
       card.appendChild(icon2);
       });
+
+      let players = [player14x4,player24x4,player34x4,player44x4]
+      let currentPlayer = 0;
+
+      function switchPlayer() {
+        let previousPlayer = currentPlayer;
+        if (previousPlayer < 0) {
+          previousPlayer = players.length - 1;
+        }
+        // Remove current player styling
+        players[previousPlayer].classList.remove('currentplayer');
+        players[previousPlayer].querySelector(".current_turn").style.visibility = "hidden";
+
+        // Increment player
+        currentPlayer++;
+        if (currentPlayer >= players.length) {
+          currentPlayer = 0;
+        }
+        // Add new current player styling
+        players[currentPlayer].classList.add('currentplayer');
+        players[currentPlayer].querySelector(".current_turn").style.visibility = "visible";
+        }
+
       cards.forEach(card => {
         card.addEventListener("click", () => {
           if (clickedCards < 2) {
@@ -457,6 +576,8 @@ function setupGame(theme, gridSize, numPlayers) {
               if (firstCard.querySelector("i").className === secondCard.querySelector("i").className) {
                 // Match
                 card.classList.add("matched-card");
+                let score = players[currentPlayer].querySelector(".score").textContent
+                players[currentPlayer].querySelector(".score").textContent = parseInt(score) + 1;
                 firstCard.style.backgroundColor = "#FDA214";
                 secondCard.style.backgroundColor = "#FDA214";
                 firstCard.removeEventListener("click", null);
@@ -469,6 +590,7 @@ function setupGame(theme, gridSize, numPlayers) {
                   firstCard.querySelector("i").style.opacity = 0;
                   secondCard.querySelector("i").style.opacity = 0;
                   clickedCards = 0;
+                  switchPlayer();
                 }, 200);
               }
               clickedCards = 0;
@@ -490,7 +612,27 @@ function setupGame(theme, gridSize, numPlayers) {
       card.dataset.value = numberValues4x4Multi[index];
       });
 
+      let players = [player14x4,player24x4,player34x4,player44x4]
+      let currentPlayer = 0;
 
+      function switchPlayer() {
+        let previousPlayer = currentPlayer;
+        if (previousPlayer < 0) {
+          previousPlayer = players.length - 1;
+        }
+        // Remove current player styling
+        players[previousPlayer].classList.remove('currentplayer');
+        players[previousPlayer].querySelector(".current_turn").style.visibility = "hidden";
+
+        // Increment player
+        currentPlayer++;
+        if (currentPlayer >= players.length) {
+          currentPlayer = 0;
+        }
+        // Add new current player styling
+        players[currentPlayer].classList.add('currentplayer');
+        players[currentPlayer].querySelector(".current_turn").style.visibility = "visible";
+        }
       cards.forEach(card => {
         card.addEventListener("click", () => {
           if (clickedCards < 2) {
@@ -508,6 +650,8 @@ function setupGame(theme, gridSize, numPlayers) {
               if (firstCard.dataset.value === secondCard.dataset.value) {
                 // Match
                 card.classList.add("matched-card");
+                let score = players[currentPlayer].querySelector(".score").textContent
+                players[currentPlayer].querySelector(".score").textContent = parseInt(score) + 1;
                 firstCard.style.backgroundColor = "#FDA214";
                 secondCard.style.backgroundColor = "#FDA214";
                 firstCard.removeEventListener("click", null);
@@ -520,6 +664,7 @@ function setupGame(theme, gridSize, numPlayers) {
                   firstCard.textContent = ""; // remove the displayed dataset.value
                   secondCard.textContent = ""; // remove the displayed dataset.value
                   clickedCards = 0;
+                  switchPlayer();
                 }, 200);
               }
       
@@ -527,10 +672,10 @@ function setupGame(theme, gridSize, numPlayers) {
             }
           }
         });
-      });
-        
-  } else(alert("select a button"))
-}
+      });     
+    }
+  }
+
 
 // the time and move set up
 const timeCount = document.querySelector(".timecount_solo");
@@ -577,7 +722,6 @@ function updateMoves() {
 cards.forEach(card => {
   card.addEventListener("click", updateMoves);
 });
-
 // newgame button click
 newGameBtn1.addEventListener("click", () => {
   location.reload();
@@ -591,3 +735,16 @@ newGameBtn3.addEventListener("click", () => {
 newGameBtn4.addEventListener("click", () => {
   location.reload();
 });
+
+// restartBtn1.addEventListener("click", () => {
+//   cards.forEach(card => card.classList.remove("matched-card"));
+// })
+// restartBtn2.addEventListener("click", () => {
+//   cards.forEach(card => card.classList.remove("matched-card"))
+// })
+// restartBtn3.addEventListener("click", () => {
+//   cards.forEach(card => card.classList.remove("matched-card"))
+// })
+// restartBtn4.addEventListener("click", () => {
+//   cards.forEach(card => card.classList.remove("matched-card"))
+// })

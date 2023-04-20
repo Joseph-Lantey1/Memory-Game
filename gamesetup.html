@@ -64,7 +64,7 @@
                     memory
                 </div>
                 <div class="gameboard_4x4_header_right">
-                    <button class="gameboard_header_right_restart_btn" type="text">Restart</button>
+                    <button class="gameboard_header_right_restart_btn1" type="text">Restart</button>
                     <button class="gameboard_header_right_newgame_btn1" type="text">New Game</button>
                 </div>
             </div>
@@ -114,7 +114,7 @@
                     memory
                 </div>
                 <div class="gameboard_header_right">
-                    <button class="gameboard_header_right_restart_btn" type="text">Restart</button>
+                    <button class="gameboard_header_right_restart_btn2" type="text">Restart</button>
                     <button class="gameboard_header_right_newgame_btn2" type="text">New Game</button>
                 </div>
             </div>
@@ -188,7 +188,7 @@
                     memory
                 </div>
                 <div class="gameboard_header_right">
-                    <button class="gameboard_header_right_restart_btn" type="text">Restart</button>
+                    <button class="gameboard_header_right_restart_btn3 type="text">Restart</button>
                     <button class="gameboard_header_right_newgame_btn3" type="text">New Game</button>
                 </div>
             </div>
@@ -220,39 +220,39 @@
            </div>
              <!-- Multiplayer 4X4 scores start -->
             <div class="playerscontainer">
-                <div id="player1" class="player_turn">
+                <div id="player1_4x4" class="player_turn currentplayer">
                     <div class="scoreboard">
                         <p class="p1">Player 1</p>
-                        <p class="p1_score">0</p>
+                        <p class="score">0</p>
                     </div>
                     <div class="current_turn">
                         CURRENT TURN
                     </div>
                 </div>
-                <div id="player2" class="player_turn">
+                <div id="player2_4x4" class="player_turn">
                     <div class="scoreboard">
                         <p class="p2">Player 2</p>
-                        <p class="p2_score">0</p>
+                        <p class="score">0</p>
                     </div>
-                    <div class="current_turn">
+                    <div class="current_turn hidden">
                         CURRENT TURN
                     </div>
                 </div>
-                <div id="player3" class="player_turn">
+                <div id="player3_4x4" class="player_turn">
                     <div class="scoreboard">
                         <p class="p3">Player 3</p>
-                        <p class="p3_score">0</p>
+                        <p class="score">0</p>
                     </div>
-                    <div class="current_turn">
+                    <div class="current_turn hidden">
                         CURRENT TURN
                     </div>
                 </div>
-                <div id="player4" class="player_turn">
+                <div id="player4_4x4" class="player_turn">
                     <div class="scoreboard">
                         <p class="p4">Player 4</p>
-                        <p class="p4_score">0</p>
+                        <p class="score">0</p>
                     </div>
-                    <div class="current_turn">
+                    <div class="current_turn hidden">
                         CURRENT TURN
                     </div>
                 </div>
@@ -267,7 +267,7 @@
                     memory
                 </div>
                 <div class="gameboard_header_right">
-                    <button class="gameboard_header_right_restart_btn" type="text">Restart</button>
+                    <button class="gameboard_header_right_restart_btn4" type="text">Restart</button>
                     <button class="gameboard_header_right_newgame_btn4" type="text">New Game</button>
                 </div>
             </div>
@@ -323,45 +323,55 @@
              <!-- Multiplayer 6X6 scores start -->
             </div>
             <div class="playerscontainer">
-                <div id="player1" class="player_turn">
+                <div id="player16x6" class="player_turn currentplayer">
                     <div class="scoreboard">
                         <p class="p1">Player 1</p>
-                        <p class="p1_score">0</p>
+                        <p class="score">0</p>
                     </div>
                     <div class="current_turn">
                         CURRENT TURN
                     </div>
                 </div>
-                <div id="player2" class="player_turn">
+                <div id="player26x6" class="player_turn">
                     <div class="scoreboard">
                         <p class="p2">Player 2</p>
-                        <p class="p2_score">0</p>
+                        <p class="score">0</p>
                     </div>
-                    <div class="current_turn">
+                    <div class="current_turn hidden">
                         CURRENT TURN
                     </div>
                 </div>
-                <div id="player3" class="player_turn">
+                <div id="player36x6" class="player_turn">
                     <div class="scoreboard">
                         <p class="p3">Player 3</p>
-                        <p class="p3_score">0</p>
+                        <p class="score">0</p>
                     </div>
-                    <div class="current_turn">
+                    <div class="current_turn hidden">
                         CURRENT TURN
                     </div>
                 </div>
-                <div id="player4" class="player_turn">
+                <div id="player46x6" class="player_turn">
                     <div class="scoreboard">
                         <p class="p4">Player 4</p>
-                        <p class="p4_score">0</p>
+                        <p class="score">0</p>
                     </div>
-                    <div class="current_turn">
+                    <div class="current_turn hidden">
                     CURRENT TURN
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    <section id="game-over-modal" class="modal">
+        <div class="modal-content">
+          <h2>You did it!</h2>
+          <p>Game over! Here's how you got on:</p>
+          <p id="time-taken"></p>
+          <p id="moves-taken"></p>
+          <button class="gameboard_header_right_restart_btn" type="text">Restart</button>
+          <button class="gameboard_header_right_newgame_btn1" type="text">New Game</button>
+        </div>
+      </section>
 
     <script src="game.js"></script>
 </body>
