@@ -704,7 +704,7 @@ body{
     color: #304859;
  }
 
- .modal_content_multi{
+ .modal_content_multi,.modal_content_multi_tie{
     margin: auto;
     width: 654px;
     height: 702px;
@@ -713,7 +713,7 @@ body{
     margin-top: 50px;
   }
 
-  .multi_modal_heading{
+  .multi_modal_heading,.multi_modal_heading_tie{
     width: 327px;   
     margin: auto;
     padding: 1em;
@@ -721,7 +721,7 @@ body{
     font-family: 'Atkinson Hyperlegible';
   }
 
-  .multi_modal_heading h1{
+  .multi_modal_heading h1,.multi_modal_heading_tie h1{
     font-weight: 700;
     font-size: 48px;
     text-align: center;
@@ -731,7 +731,7 @@ body{
     margin-bottom: 16px;
   }
 
-  .multi_modal_heading p{
+  .multi_modal_heading p,.multi_modal_heading_tie p{
    width: 286px;
     font-weight: 700;
     font-size: 18px;
@@ -741,7 +741,7 @@ body{
     margin-bottom: 40px;
   }
 
-  .modal_multi_stats{
+  .modal_multi_stats,.modal_multi_stats_tie{
     width: 542px;
     height: 336px;
     margin: auto;
@@ -751,7 +751,7 @@ body{
     margin-bottom: 56px;
   }
 
-  .players_stats{
+  .players_stats,.players_stats_tie{
     font-family: "Atkinson Hyperlegible";
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -762,21 +762,22 @@ body{
     align-items: center;
   }
 
-  #winner{
+  #winner,#winner_tie{
     background-color: #152938;
     color: #FCFCFC;
   }
 
-  #winner_title{
+  #winner_title,#winner_title_tie{
     color: #FCFCFC;
   }
 
-  #second,#third,#last{
+  #second,#third,#last,
+  #second_tie,#third_tie,#last_tie{
     background: #DFE7EC;
     color: #304859;
   }
 
-  .modal_players{
+  .modal_players,.modal_players_tie{
     font-weight: 700;
     font-size: 18px;
     color: #7191A5;
@@ -784,7 +785,7 @@ body{
     text-align: left;
   }
 
-  .stats{
+  .stats, .stats_tie{
     font-size: 32px;
     font-weight: 700;
     margin: auto;
