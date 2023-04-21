@@ -597,71 +597,115 @@ body{
     visibility: visible;
   }
 
-  
+  /* modal */
   .modal-content{
     margin: auto;
     width: 654px;
     height: 510px;
     background: #F2F2F2;
     border-radius: 20px;
-    margin-top: 275px;
-    /* display: block; */
-    /* justify-content: center;
-    align-items: center; */
+    margin-top: 150px;
   }
 
   .solo_modal_heading{
+    width: 305px;
+    margin: auto;
+    padding: 1em;
+    text-align: center;
+
+  }
+
+  .solo_modal_heading h1{
     font-family: 'Atkinson Hyperlegible';
     font-style: normal;
     font-weight: 700;
     font-size: 48px;
-    line-height: 60px;
     text-align: center;
     color: #152938;
-    Width: 234px;
-    Height: 60px;
-    margin: auto;
-    padding: 0.5em;
+    margin-bottom: -16px
   }
 
-  .modal-content p1{
-    Width: 305px;
-    Height: 22px;
-    margin: auto;
-    /* margin-top: 16px; */
+  .solo_modal_heading p{
     font-family: 'Atkinson Hyperlegible';
-    font-style: normal;
+    font-weight: 700;
     font-size: 18px;
-    line-height: 22px;
     text-align: center;
     color: #7191A5;
     text-align: center;
-    background-color: #eff305;
   }
 
-  .modal_time_moves{
-    width: 542px;
-    height: 160px;
-    display: inline flex;
-    justify-content: space-between;
-    margin: auto;
-  }
 
-  .modal_time_moves p{
+  .modal_time, .modal_move{
+    font-family: 'Atkinson Hyperlegible';
     background: #DFE7EC;
     border-radius: 10px;
     height: 72px;
-    font-family: 'Atkinson Hyperlegible';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 18px;
-    color: #7191A5;
     margin: auto;
-    /* height: 22px;
-    width: 117px; */
-    
-
+    width: 542px;
+    display: flex;
+    grid-template-columns: repeat(2,1fr);
   }
+
+  .modal_move{
+    margin-top: 16px;
+  }
+    #time_taken,#moves_taken{
+        margin: auto;
+        font-weight: 700;
+        font-size: 18px;
+        color: #7191A5;
+        height: 22px;
+        width: 117px;
+        text-align: left;
+  }
+    
+  #time, #move{
+    height: 40px;
+    /* width: 92px; */
+    font-weight: 700;
+    font-size: 32px;
+    text-align: right;
+    color: #304859;
+    margin: auto;
+  }
+
+  .modal_btns{
+    font-family: 'Atkinson Hyperlegible';
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    justify-content: space-between;
+    width: 542px;
+    height: 52px;
+    margin: auto;
+    margin-top: 40px;
+  }
+
+  .modal_restart_btn, .modal_newgame_btn{
+    border-radius: 26px;
+    border: none;
+    height: 52px;
+    width: 264px;
+  }
+  
+ .modal_restart_btn{
+    background: #FDA214;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 25px;
+    text-align: center;
+    color: #FCFCFC;
+ }
+
+ .modal_newgame_btn{
+    font-family: 'Atkinson Hyperlegible';
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 25px;
+    text-align: center;
+    background: #DFE7EC;
+    color: #304859;
+ }
+
 
 
 
