@@ -598,7 +598,7 @@ body{
   }
 
   /* modal */
-  .modal-content{
+  .modal_content_solo{
     margin: auto;
     width: 654px;
     height: 510px;
@@ -612,7 +612,6 @@ body{
     margin: auto;
     padding: 1em;
     text-align: center;
-
   }
 
   .solo_modal_heading h1{
@@ -633,7 +632,6 @@ body{
     color: #7191A5;
     text-align: center;
   }
-
 
   .modal_time, .modal_move{
     font-family: 'Atkinson Hyperlegible';
@@ -705,6 +703,97 @@ body{
     background: #DFE7EC;
     color: #304859;
  }
+
+ .modal_content_multi{
+    margin: auto;
+    width: 654px;
+    height: 702px;
+    background: #F2F2F2;
+    border-radius: 20px;
+    margin-top: 50px;
+  }
+
+  .multi_modal_heading{
+    width: 327px;   
+    margin: auto;
+    padding: 1em;
+    text-align: center;
+    font-family: 'Atkinson Hyperlegible';
+  }
+
+  .multi_modal_heading h1{
+    font-weight: 700;
+    font-size: 48px;
+    text-align: center;
+    color: #152938;
+    margin: auto;
+    width: 327px;
+    margin-bottom: 16px;
+  }
+
+  .multi_modal_heading p{
+   width: 286px;
+    font-weight: 700;
+    font-size: 18px;
+    text-align: center;
+    color: #7191A5;
+    margin: auto;
+    margin-bottom: 40px;
+  }
+
+  .modal_multi_stats{
+    width: 542px;
+    height: 336px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: space-between;
+    margin-bottom: 56px;
+  }
+
+  .players_stats{
+    font-family: "Atkinson Hyperlegible";
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 72px;
+    width: 542px;
+    border-radius: 10px;
+    margin: auto;
+    align-items: center;
+  }
+
+  #winner{
+    background-color: #152938;
+    color: #FCFCFC;
+  }
+
+  #winner_title{
+    color: #FCFCFC;
+  }
+
+  #second,#third,#last{
+    background: #DFE7EC;
+    color: #304859;
+  }
+
+  .modal_players{
+    font-weight: 700;
+    font-size: 18px;
+    color: #7191A5;
+    margin: auto;
+    text-align: left;
+  }
+
+  .stats{
+    font-size: 32px;
+    font-weight: 700;
+    margin: auto;
+    text-align: right;
+  }
+
+  
+
+
 
 
 
