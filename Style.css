@@ -13,6 +13,7 @@ body{
     background-color:rgba(21, 41, 56, 1); 
     /* overflow-y: hidden; */
 }
+
 .game{
     margin: auto;
     width: 654px;
@@ -42,10 +43,10 @@ body{
     width: 644px;
     font-family: Atkinson Hyperlegible;
 }
-
+/* 
 #gamesetup{
     height: 100vh;
-}
+} */
 
  .theme{
     height: 93px;
@@ -244,10 +245,10 @@ body{
     background: #FFB84A;
 }
 
-#gameboard_6x6_start_solo,#gameboard_4x4_start_solo,
+/* #gameboard_6x6_start_solo,#gameboard_4x4_start_solo,
 #gameboard_4x4_start,#gameboard_6x6_start{
     height: 100%;
-}
+} */
 
 /* Game board 6x6 & 4x4*/
 .gameboard{
@@ -329,11 +330,6 @@ body{
     grid-template-rows: repeat(6, 1fr);
 }
 
-/* .row6x6{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-} */
-
 .card6x6_solo, .card6x6_multi{
     width: 82px;
     height: 82px;
@@ -342,6 +338,12 @@ body{
     margin-bottom: 16px;
     cursor: pointer;
     transition: 0.8s;
+}
+
+.card6x6_solo:hover, 
+.card6x6_multi:hover{
+    cursor: pointer;
+    background-color: #6395B8;
 }
 
 .playerscontainer{
@@ -443,12 +445,6 @@ body{
     grid-template-rows: repeat(4, 1fr);
 }
 
-/* .row4x4{
-    /* display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    justify-content: center; */
-
-
 .card4x4_solo, .card4x4_multi{
     height: 118px;
     width: 118px;
@@ -460,6 +456,12 @@ body{
     justify-content: center; 
     cursor: pointer;
     transition: 0.3s;
+}
+
+.card4x4_solo:hover, 
+.card4x4_multi:hover{
+    cursor: pointer;
+    background-color: #6395B8;
 }
 
 /* Solo 6x6 & 4x4 */
@@ -694,6 +696,11 @@ body{
     color: #FCFCFC;
  }
 
+ .modal_restart_btn:hover{
+    cursor: pointer;
+    background-color: #FFB84A;
+ }
+
  .modal_newgame_btn{
     font-family: 'Atkinson Hyperlegible';
     font-weight: 700;
@@ -702,7 +709,13 @@ body{
     text-align: center;
     background: #DFE7EC;
     color: #304859;
- }
+  }
+
+ .modal_newgame_btn:hover{
+    cursor: pointer;
+    background-color: #6395B8;
+    color: white;
+}
 
  .modal_content_multi,.modal_content_multi_tie{
     margin: auto;
@@ -790,6 +803,18 @@ body{
     font-weight: 700;
     margin: auto;
     text-align: right;
+  }
+
+  #game-over-modal_solo{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(0.5px);
+    background-color: rgba(0, 0, 0, 0.5);
   }
 
   

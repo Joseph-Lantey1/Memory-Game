@@ -188,7 +188,7 @@
                     memory
                 </div>
                 <div class="gameboard_header_right">
-                    <button class="gameboard_header_right_restart_btn3 type="text">Restart</button>
+                    <button class="gameboard_header_right_restart_btn3" type="text">Restart</button>
                     <button class="gameboard_header_right_newgame_btn3" type="text">New Game</button>
                 </div>
             </div>
@@ -362,17 +362,26 @@
             </div>
         </div>
     </section>
-    <section id="game-over-modal" class="modal">
-        <div class="modal-content">
-          <h2>You did it!</h2>
-          <p>Game over! Here's how you got on:</p>
-          <p id="time-taken"></p>
-          <p id="moves-taken"></p>
-          <button class="gameboard_header_right_restart_btn" type="text">Restart</button>
-          <button class="gameboard_header_right_newgame_btn1" type="text">New Game</button>
+    <section id="game-over-modal_solo" class="modal_solo">
+        <div class="modal_content_solo">
+          <div class="solo_modal_heading">
+            <h1>You did it! </h1>
+            <p> Game over! Here's how you got on:</p>
+          </div>
+          <div class = "modal_time">
+            <p id="time_taken">Time Elasped</p>
+            <p id="time">0:00</p>
+          </div>
+          <div class="modal_move">
+              <p id="moves_taken">Moves Taken</p>
+              <p id="move">0 Moves</p>
+            </div>
+          <div class="modal_btns">
+            <button class="modal_restart_btn" type="text">Restart</button>
+            <button class="modal_newgame_btn" type="text">Setup New Game</button>
+          </div>
         </div>
-      </section>
-
+      </section> 
     <script src="game.js"></script>
 </body>
 </html>

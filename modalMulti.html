@@ -41,3 +41,43 @@
     </section>
 </body>
 </html>
+
+<!-- if (firstCard.dataset.value === secondCard.dataset.value) {
+  // Match
+  card.classList.add("matched-card");
+  scores[currentPlayer]++;
+  let score = players[currentPlayer].querySelector(".score").textContent
+  players[currentPlayer].querySelector(".score").textContent = parseInt(score) + 1;
+  firstCard.style.backgroundColor = "#FDA214";
+  secondCard.style.backgroundColor = "#FDA214";
+  firstCard.removeEventListener("click", null);
+  secondCard.removeEventListener("click", null);
+  // Check if all cards have been paired
+  let matchedCards = document.querySelectorAll(".matched-card");
+  if (matchedCards.length === cards.length) {
+    // Find the player with the highest score
+    let maxScore = Math.max(...scores);
+    let winnerIndex = scores.indexOf(maxScore);
+    // Display the winner modal
+    let modal = document.getElementById("winner_modal_multi");
+    let winnerStats = document.getElementById("winner_stats");
+    let secondStats = document.getElementById("second_stats");
+    let thirdStats = document.getElementById("third_stats");
+    let lastStats = document.getElementById("last_stats");
+    switch (winnerIndex) {
+      case 0:
+        modal.querySelector("#winner_title").textContent = "Player 1 Wins!";
+        winnerStats.textContent = `${maxScore} Pairs`;
+        secondStats.textContent = `${scores[1]} Pairs`;
+        thirdStats.textContent = `${scores[2]} Pairs`;
+        lastStats.textContent = `${scores[3]} Pairs`;
+        break;
+      case 1:
+        modal.querySelector("#winner_title").textContent = "Player 2 Wins!";
+        winnerStats.textContent = `${maxScore} Pairs`;
+        secondStats.textContent = `${scores[0]} Pairs`;
+        thirdStats.textContent = `${scores[2]} Pairs`;
+        lastStats.textContent = `${scores[3]} Pairs`;
+        break;
+      case 2:
+        modal.querySelector("#winner_title").textContent -->
