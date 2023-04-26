@@ -535,7 +535,7 @@ function setupGame(theme, gridSize, numPlayers) {
       function switchPlayer() {
         let previousPlayer = currentPlayer;
         if (previousPlayer < 0) {
-          previousPlayer = players.length - 1;
+          previousPlayer = sortedP - 1;
         }
         // Remove current player styling
         players[previousPlayer].classList.remove('currentplayer');
@@ -574,6 +574,11 @@ function setupGame(theme, gridSize, numPlayers) {
                 secondCard.style.backgroundColor = "#FDA214";
                 firstCard.removeEventListener("click", null);
                 secondCard.removeEventListener("click", null);
+                const matchedCards = document.querySelectorAll(".matched-card");
+                if (matchedCards.length === 36) {
+                  // Game over
+                  showMultiplayerResultsModal(players);
+                }
               } else {
                 // No match
                 setTimeout(() => {
@@ -673,6 +678,11 @@ function setupGame(theme, gridSize, numPlayers) {
                 secondCard.style.backgroundColor = "#FDA214";
                 firstCard.removeEventListener("click", null);
                 secondCard.removeEventListener("click", null);
+                const matchedCards = document.querySelectorAll(".matched-card");
+                if (matchedCards.length === 36) {
+                  // Game over
+                  showMultiplayerResultsModal(players);
+                }
               } 
               else {
                 // No match
@@ -786,6 +796,11 @@ function setupGame(theme, gridSize, numPlayers) {
                 secondCard.style.backgroundColor = "#FDA214";
                 firstCard.removeEventListener("click", null);
                 secondCard.removeEventListener("click", null);
+                const matchedCards = document.querySelectorAll(".matched-card");
+                if (matchedCards.length === 16) {
+                  // Game over
+                  showMultiplayerResultsModal(players);
+                }
               } else {
                 // No match
                 setTimeout(() => {
@@ -901,6 +916,10 @@ function setupGame(theme, gridSize, numPlayers) {
                 secondCard.style.backgroundColor = "#FDA214";
                 firstCard.removeEventListener("click", null);
                 secondCard.removeEventListener("click", null);
+                const matchedCards = document.querySelectorAll(".matched-card");
+                if (matchedCards.length === 16) {
+                  showMultiplayerResultsModal(players)
+                }
               } else {
                 // No match
                 setTimeout(() => {
@@ -1008,7 +1027,7 @@ function setupGame(theme, gridSize, numPlayers) {
         location.reload();
       });
 
-      // modal function
+      // Solo document function
       function displayModalSolo() {
         modalTime.innerText = timeCount.innerText;
         modalTime.innerText = timeCount6x6.innerText;
@@ -1035,5 +1054,118 @@ function setupGame(theme, gridSize, numPlayers) {
           location.reload();
         })
       }
+        // Multiplayer Modal function
+        function updateStats(players) {
+          return players.sort((a, b) => {
+            return b.querySelector(".score").textContent - a.querySelector(".score").textContent;
+          });
+        }
+        
+        function showMultiplayerResultsModal(players) {
+          const sortedPlayers = updateStats(players);
+          let winnerTitle = document.getElementById("winner_title");
+          let secondTitle = document.getElementById("second_title");
+          let thirdTitle  = document.getElementById("third_title");
+          let lastTitle = document.getElementById("last_title");
+          // let modalPlayers = document.querySelectorAll(".modal-players");
+        
+          // Update winner, second, third, and last stats
+          if (sortedPlayers.length === 2) {
+            document.getElementById("third").style.display = "none";
+            document.getElementById("last").style.display = "none";
+            document.getElementById("third tie").style.display = "none";
+            document.getElementById("last tie").style.display = "none";
 
-    ;
+            if(sortedPlayers[0].querySelector('.score').textContent === sortedPlayers[1].querySelector('.score').textContent) {
+              winnerTitle.textContent = `${sortedPlayers[0].querySelector(".allplayers").textContent} (Winner!)`;
+              winnerTitle.textContent = `${sortedPlayers[0].querySelector(".allplayers").textContent} (Winner!)`;
+
+              const modalMultiTie = document.getElementById("tie_modal_multi");
+              modalMultiTie.style.display = "block";
+
+              } else {
+                winnerTitle.textContent = `${sortedPlayers[0].querySelector(".allplayers").textContent} (Winner!)`;
+                document.getElementById("winner_stats").textContent = `${sortedPlayers[0].querySelector(".score").textContent} Pairs`;
+            
+                secondTitle.textContent = sortedPlayers[1].querySelector(".allplayers").textContent;
+                document.getElementById("second_stats").textContent = `${sortedPlayers[1].querySelector(".score").textContent} Pairs`;
+                
+                document.querySelector('.who_wins').textContent = `${sortedPlayers[0].querySelector('.allplayers').textContent} Wins!`;
+                
+                const modalMulti = document.getElementById("winner_modal_multi");
+                modalMulti.style.display = "block";
+              }
+          }
+        
+          if (sortedPlayers.length === 3) {
+            document.getElementById("last").style.display = "none";
+            document.getElementById("last tie").style.display = "none";
+
+            if(sortedPlayers[0].querySelector('.score').textContent === sortedPlayers[1].querySelector('.score').textContent) {
+              winnerTitle.textContent = `${sortedPlayers[0].querySelector(".allplayers").textContent} (Winner!)`;
+              winnerTitle.textContent = `${sortedPlayers[0].querySelector(".allplayers").textContent} (Winner!)`;
+           
+              thirdTitle.textContent = sortedPlayers[2].querySelector(".allplayers").textContent;
+              document.getElementById("third_stats").textContent = `${sortedPlayers[2].querySelector(".score").textContent} Pairs`;
+
+              const modalMultiTie = document.getElementById("tie_modal_multi");
+              modalMultiTie.style.display = "block";
+
+              } else {
+                winnerTitle.textContent = `${sortedPlayers[0].querySelector(".allplayers").textContent} (Winner!)`;
+                document.getElementById("winner_stats").textContent = `${sortedPlayers[0].querySelector(".score").textContent} Pairs`;
+            
+                secondTitle.textContent = sortedPlayers[1].querySelector(".allplayers").textContent;
+                document.getElementById("second_stats").textContent = `${sortedPlayers[1].querySelector(".score").textContent} Pairs`;
+
+                thirdTitle.textContent = sortedPlayers[2].querySelector(".allplayers").textContent;
+                document.getElementById("third_stats").textContent = `${sortedPlayers[2].querySelector(".score").textContent} Pairs`;
+                
+                document.querySelector('.who_wins').textContent = `${sortedPlayers[0].querySelector('.allplayers').textContent} Wins!`;
+                
+                const modalMulti = document.getElementById("winner_modal_multi");
+                modalMulti.style.display = "block";
+              }
+        
+          if (sortedPlayers.length === 4) {
+
+            if(sortedPlayers[0].querySelector('.score').textContent === sortedPlayers[1].querySelector('.score').textContent) {
+              winnerTitle.textContent = `${sortedPlayers[0].querySelector(".allplayers").textContent} (Winner!)`;
+              winnerTitle.textContent = `${sortedPlayers[0].querySelector(".allplayers").textContent} (Winner!)`;
+           
+              thirdTitle.textContent = sortedPlayers[2].querySelector(".allplayers").textContent;
+              document.getElementById("third_stats").textContent = `${sortedPlayers[2].querySelector(".score").textContent} Pairs`;
+
+              lastTitle.textContent = sortedPlayers[3].querySelector(".allplayers").textContent;
+              document.getElementById("last_stats").textContent = `${sortedPlayers[3].querySelector(".score").textContent} Pairs`;
+
+              const modalMultiTie = document.getElementById("tie_modal_multi");
+              modalMultiTie.style.display = "block";
+
+              } else {
+              winnerTitle.textContent = `${sortedPlayers[0].querySelector(".allplayers").textContent} (Winner!)`;
+              document.getElementById("winner_stats").textContent = `${sortedPlayers[0].querySelector(".score").textContent} Pairs`;
+          
+              secondTitle.textContent = sortedPlayers[1].querySelector(".allplayers").textContent;
+              document.getElementById("second_stats").textContent = `${sortedPlayers[1].querySelector(".score").textContent} Pairs`;
+
+              thirdTitle.textContent = sortedPlayers[2].querySelector(".allplayers").textContent;
+              document.getElementById("third_stats").textContent = `${sortedPlayers[2].querySelector(".score").textContent} Pairs`;
+          
+              lastTitle.textContent = sortedPlayers[3].querySelector(".allplayers").textContent;
+              document.getElementById("last_stats").textContent = `${sortedPlayers[3].querySelector(".score").textContent} Pairs`;
+            
+              document.querySelector('.who_wins').textContent = `${sortedPlayers[0].querySelector('.allplayers').textContent} Wins!`;
+
+              const modalMulti = document.getElementById("winner_modal_multi");
+              modalMulti.style.display = "block";
+              }  
+            }
+          }
+        }  
+        
+        
+        
+        
+
+        

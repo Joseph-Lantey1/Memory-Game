@@ -373,7 +373,7 @@ body{
     margin: auto;
 }
 
-.p1,.p2,.p3,.p4
+.allplayers
 {
     height: 22px;
     width: 70px;
@@ -805,7 +805,7 @@ body{
     text-align: right;
   }
 
-  #game-over-modal_solo{
+  #game-over-modal_solo, #winner_modal_multi, #tie_modal_multi{
     position: absolute;
     top: 50%;
     left: 50%;
