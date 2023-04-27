@@ -410,10 +410,10 @@ body{
 .currentplayer{
     background-color: #FDA214;
 }
-.currentplayer .scoreboard .p1{
+.currentplayer .scoreboard .allplayers{
     color : white;
 }
-.currentplayer .scoreboard .p2{
+.currentplayer .scoreboard .allplayers{
     color : white;
 }
 .currentplayer .scoreboard .score{
@@ -422,10 +422,10 @@ body{
 .currentplayer .scoreboard .score{
     color: white;
 }
-.currentplayer .scoreboard .p3{
+.currentplayer .scoreboard .allplayers{
     color : white;
 }
-.currentplayer .scoreboard .p4{
+.currentplayer .scoreboard .allplayers{
     color : white;
 }
 .currentplayer .scoreboard .score{
@@ -669,7 +669,7 @@ body{
     margin: auto;
   }
 
-  .modal_btns{
+  .modal_btns, .modal_btns_tie{
     font-family: 'Atkinson Hyperlegible';
     display: grid;
     grid-template-columns: repeat(2,1fr);
@@ -680,14 +680,18 @@ body{
     margin-top: 40px;
   }
 
-  .modal_restart_btn, .modal_newgame_btn{
+  .modal_restart_btn, .modal_newgame_btn,
+  .modal_restart_btn_multi, .modal_newgame_btn_multi,
+  .modal_restart_btn_tie, .modal_newgame_btn_tie{
     border-radius: 26px;
     border: none;
     height: 52px;
     width: 264px;
   }
   
- .modal_restart_btn{
+ .modal_restart_btn,
+ .modal_restart_btn_multi,
+ .modal_restart_btn_tie{
     background: #FDA214;
     font-weight: 700;
     font-size: 20px;
@@ -696,12 +700,16 @@ body{
     color: #FCFCFC;
  }
 
- .modal_restart_btn:hover{
+ .modal_restart_btn:hover,
+ .modal_restart_btn_multi:hover,
+ .modal_restart_btn_tie:hover{
     cursor: pointer;
     background-color: #FFB84A;
  }
 
- .modal_newgame_btn{
+ .modal_newgame_btn,
+ .modal_newgame_btn_multi,
+ .modal_newgame_btn_tie{
     font-family: 'Atkinson Hyperlegible';
     font-weight: 700;
     font-size: 20px;
@@ -711,7 +719,9 @@ body{
     color: #304859;
   }
 
- .modal_newgame_btn:hover{
+ .modal_newgame_btn:hover,
+ .modal_newgame_btn_multi:hover,
+ .modal_newgame_btn_tie:hover{
     cursor: pointer;
     background-color: #6395B8;
     color: white;
@@ -775,17 +785,17 @@ body{
     align-items: center;
   }
 
-  #winner,#winner_tie{
+  #winner,#winner_tie,#winner2_tie{
     background-color: #152938;
     color: #FCFCFC;
   }
 
-  #winner_title,#winner_title_tie{
+  #winner_title,#winner1_title_tie,#winner2_title_tie{
     color: #FCFCFC;
   }
 
-  #second,#third,#last,
-  #second_tie,#third_tie,#last_tie{
+  #second,#third,#last
+  ,#third_tie,#last_tie{
     background: #DFE7EC;
     color: #304859;
   }

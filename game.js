@@ -40,6 +40,10 @@ const modalMove = document.getElementById("move");
 const modalSolo = document.getElementById("game-over-modal_solo");
 let modalRestartBtn = document.querySelector(".modal_restart_btn");
 let modalNewGameBtn = document.querySelector(".modal_newgame_btn");
+let modalMultiRestartBtn = document.querySelector(".modal_restart_btn_multi");
+let modalMultiNewGameBtn = document.querySelector(".modal_newgame_btn_multi");
+let modalMultiTieRestartBtn = document.querySelector(".modal_restart_btn_tie");
+let modalMultiTieNewGameBtn = document.querySelector(".modal_newgame_btn_tie");
 
 // Number values and icon value
 const numberValues = [1,2,3,4,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37];
@@ -184,6 +188,7 @@ function setupGame(theme, gridSize, numPlayers) {
     cards.forEach(card => {
       card.addEventListener("click", () => {
         if (clickedCards < 2) {
+           
           clickedCards++;
     
           if (clickedCards === 1) {
@@ -798,7 +803,6 @@ function setupGame(theme, gridSize, numPlayers) {
                 secondCard.removeEventListener("click", null);
                 const matchedCards = document.querySelectorAll(".matched-card");
                 if (matchedCards.length === 16) {
-                  // Game over
                   showMultiplayerResultsModal(players);
                 }
               } else {
@@ -918,7 +922,7 @@ function setupGame(theme, gridSize, numPlayers) {
                 secondCard.removeEventListener("click", null);
                 const matchedCards = document.querySelectorAll(".matched-card");
                 if (matchedCards.length === 16) {
-                  showMultiplayerResultsModal(players)
+                  showMultiplayerResultsModal(players);
                 }
               } else {
                 // No match
@@ -965,8 +969,6 @@ function setupGame(theme, gridSize, numPlayers) {
   });
 }
 }
-
-
 
 // the time and move set up
       const timeCount = document.querySelector(".timecount_solo");
@@ -1067,21 +1069,36 @@ function setupGame(theme, gridSize, numPlayers) {
           let secondTitle = document.getElementById("second_title");
           let thirdTitle  = document.getElementById("third_title");
           let lastTitle = document.getElementById("last_title");
+          let winner1TitleTie = document.getElementById("winner1_title_tie");
+          let winner2TitleTie = document.getElementById("winner2_title_tie");
+          let thirdTitleTie  = document.getElementById("third_title_tie");
+          let lastTitleTie = document.getElementById("last_title_tie");
           // let modalPlayers = document.querySelectorAll(".modal-players");
         
           // Update winner, second, third, and last stats
           if (sortedPlayers.length === 2) {
-            document.getElementById("third").style.display = "none";
-            document.getElementById("last").style.display = "none";
-            document.getElementById("third tie").style.display = "none";
-            document.getElementById("last tie").style.display = "none";
+              document.getElementById("third").style.display = "none";
+              document.getElementById("last").style.display = "none";
+              document.getElementById("third_tie").style.display = "none";
+              document.getElementById("last_tie").style.display = "none";
 
-            if(sortedPlayers[0].querySelector('.score').textContent === sortedPlayers[1].querySelector('.score').textContent) {
-              winnerTitle.textContent = `${sortedPlayers[0].querySelector(".allplayers").textContent} (Winner!)`;
-              winnerTitle.textContent = `${sortedPlayers[0].querySelector(".allplayers").textContent} (Winner!)`;
+            if(sortedPlayers[0].querySelector(".score").textContent === sortedPlayers[1].querySelector(".score").textContent) {
+              document.getElementById("winner1_stats_tie").textContent = `${sortedPlayers[0].querySelector(".score").textContent} Pairs`;
+              document.getElementById("winner2_stats_tie").textContent = `${sortedPlayers[0].querySelector(".score").textContent} Pairs`;
+              winner1TitleTie.textContent = `${sortedPlayers[0].querySelector(".allplayers").textContent} (Winner!)`;
+              winner2TitleTie.textContent = `${sortedPlayers[1].querySelector(".allplayers").textContent} (Winner!)`;
 
               const modalMultiTie = document.getElementById("tie_modal_multi");
               modalMultiTie.style.display = "block";
+
+              modalMultiTieRestartBtn.addEventListener("click", () => {
+                restartBtn4.click();
+                restartBtn3.click();
+                modalMultiTie.style.display = "none";
+              });
+              modalMultiTieNewGameBtn.addEventListener("click", () => {
+                location.reload();
+              })
 
               } else {
                 winnerTitle.textContent = `${sortedPlayers[0].querySelector(".allplayers").textContent} (Winner!)`;
@@ -1090,26 +1107,46 @@ function setupGame(theme, gridSize, numPlayers) {
                 secondTitle.textContent = sortedPlayers[1].querySelector(".allplayers").textContent;
                 document.getElementById("second_stats").textContent = `${sortedPlayers[1].querySelector(".score").textContent} Pairs`;
                 
-                document.querySelector('.who_wins').textContent = `${sortedPlayers[0].querySelector('.allplayers').textContent} Wins!`;
+                document.querySelector(".who_wins").textContent = `${sortedPlayers[0].querySelector('.allplayers').textContent} Wins!`;
                 
                 const modalMulti = document.getElementById("winner_modal_multi");
                 modalMulti.style.display = "block";
+
+                modalMultiRestartBtn.addEventListener("click", () => {
+                  restartBtn4.click();
+                  restartBtn3.click();
+                  modalMulti.style.display = "none";
+                });
+                modalMultiNewGameBtn.addEventListener("click", () => {
+                  location.reload();
+                });
               }
           }
         
           if (sortedPlayers.length === 3) {
-            document.getElementById("last").style.display = "none";
-            document.getElementById("last tie").style.display = "none";
+              document.getElementById("last").style.display = "none";
+              document.getElementById("last_tie").style.display = "none";
 
-            if(sortedPlayers[0].querySelector('.score').textContent === sortedPlayers[1].querySelector('.score').textContent) {
-              winnerTitle.textContent = `${sortedPlayers[0].querySelector(".allplayers").textContent} (Winner!)`;
-              winnerTitle.textContent = `${sortedPlayers[0].querySelector(".allplayers").textContent} (Winner!)`;
+            if(sortedPlayers[0].querySelector(".score").textContent === sortedPlayers[1].querySelector(".score").textContent) {
+              document.getElementById("winner1_stats_tie").textContent = `${sortedPlayers[0].querySelector(".score").textContent} Pairs`;
+              document.getElementById("winner2_stats_tie").textContent = `${sortedPlayers[0].querySelector(".score").textContent} Pairs`;
+              winner1TitleTie.textContent = `${sortedPlayers[0].querySelector(".allplayers").textContent} (Winner!)`;
+              winner2TitleTie.textContent = `${sortedPlayers[1].querySelector(".allplayers").textContent} (Winner!)`;
            
-              thirdTitle.textContent = sortedPlayers[2].querySelector(".allplayers").textContent;
-              document.getElementById("third_stats").textContent = `${sortedPlayers[2].querySelector(".score").textContent} Pairs`;
+              thirdTitleTie.textContent = sortedPlayers[2].querySelector(".allplayers").textContent;
+              document.getElementById("third_stats_tie").textContent = `${sortedPlayers[2].querySelector(".score").textContent} Pairs`;
 
               const modalMultiTie = document.getElementById("tie_modal_multi");
               modalMultiTie.style.display = "block";
+
+              modalMultiTieRestartBtn.addEventListener("click", () => {
+                restartBtn4.click();
+                restartBtn3.click();
+                modalMultiTie.style.display = "none";
+              });
+              modalMultiTieNewGameBtn.addEventListener("click", () => {
+                location.reload();
+              })
 
               } else {
                 winnerTitle.textContent = `${sortedPlayers[0].querySelector(".allplayers").textContent} (Winner!)`;
@@ -1121,26 +1158,47 @@ function setupGame(theme, gridSize, numPlayers) {
                 thirdTitle.textContent = sortedPlayers[2].querySelector(".allplayers").textContent;
                 document.getElementById("third_stats").textContent = `${sortedPlayers[2].querySelector(".score").textContent} Pairs`;
                 
-                document.querySelector('.who_wins').textContent = `${sortedPlayers[0].querySelector('.allplayers').textContent} Wins!`;
+                document.querySelector(".who_wins").textContent = `${sortedPlayers[0].querySelector('.allplayers').textContent} Wins!`;
                 
                 const modalMulti = document.getElementById("winner_modal_multi");
                 modalMulti.style.display = "block";
+
+                modalMultiRestartBtn.addEventListener("click", () => {
+                  restartBtn4.click();
+                  restartBtn3.click();
+                  modalMulti.style.display = "none";
+                });
+                modalMultiNewGameBtn.addEventListener("click", () => {
+                  location.reload();
+                })
               }
+            }  
         
           if (sortedPlayers.length === 4) {
 
-            if(sortedPlayers[0].querySelector('.score').textContent === sortedPlayers[1].querySelector('.score').textContent) {
-              winnerTitle.textContent = `${sortedPlayers[0].querySelector(".allplayers").textContent} (Winner!)`;
-              winnerTitle.textContent = `${sortedPlayers[0].querySelector(".allplayers").textContent} (Winner!)`;
+            if(sortedPlayers[0].querySelector(".score").textContent === sortedPlayers[1].querySelector(".score").textContent) {
+              document.getElementById("winner1_stats_tie").textContent = `${sortedPlayers[0].querySelector(".score").textContent} Pairs`;
+              document.getElementById("winner2_stats_tie").textContent = `${sortedPlayers[0].querySelector(".score").textContent} Pairs`;
+              winner1TitleTie.textContent = `${sortedPlayers[0].querySelector(".allplayers").textContent} (Winner!)`;
+              winner2TitleTie.textContent = `${sortedPlayers[1].querySelector(".allplayers").textContent} (Winner!)`;
            
-              thirdTitle.textContent = sortedPlayers[2].querySelector(".allplayers").textContent;
-              document.getElementById("third_stats").textContent = `${sortedPlayers[2].querySelector(".score").textContent} Pairs`;
+              thirdTitleTie.textContent = sortedPlayers[2].querySelector(".allplayers").textContent;
+              document.getElementById("third_stats_tie").textContent = `${sortedPlayers[2].querySelector(".score").textContent} Pairs`;
 
-              lastTitle.textContent = sortedPlayers[3].querySelector(".allplayers").textContent;
-              document.getElementById("last_stats").textContent = `${sortedPlayers[3].querySelector(".score").textContent} Pairs`;
+              lastTitleTie.textContent = sortedPlayers[3].querySelector(".allplayers").textContent;
+              document.getElementById("last_stats_tie").textContent = `${sortedPlayers[3].querySelector(".score").textContent} Pairs`;
 
               const modalMultiTie = document.getElementById("tie_modal_multi");
               modalMultiTie.style.display = "block";
+
+              modalMultiTieRestartBtn.addEventListener("click", () => {
+                restartBtn4.click();
+                restartBtn3.click();
+                modalMultiTie.style.display = "none";
+              });
+              modalMultiTieNewGameBtn.addEventListener("click", () => {
+                location.reload();
+              });
 
               } else {
               winnerTitle.textContent = `${sortedPlayers[0].querySelector(".allplayers").textContent} (Winner!)`;
@@ -1155,14 +1213,22 @@ function setupGame(theme, gridSize, numPlayers) {
               lastTitle.textContent = sortedPlayers[3].querySelector(".allplayers").textContent;
               document.getElementById("last_stats").textContent = `${sortedPlayers[3].querySelector(".score").textContent} Pairs`;
             
-              document.querySelector('.who_wins').textContent = `${sortedPlayers[0].querySelector('.allplayers').textContent} Wins!`;
+              document.querySelector(".who_wins").textContent = `${sortedPlayers[0].querySelector('.allplayers').textContent} Wins!`;
 
               const modalMulti = document.getElementById("winner_modal_multi");
               modalMulti.style.display = "block";
+
+              modalMultiRestartBtn.addEventListener("click", () => {
+                restartBtn4.click();
+                restartBtn3.click();
+                modalMulti.style.display = "none";
+              });
+              modalMultiNewGameBtn.addEventListener("click", () => {
+                location.reload();
+              });
               }  
             }
-          }
-        }  
+          }  
         
         
         
