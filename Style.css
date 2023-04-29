@@ -11,7 +11,7 @@ body{
     margin: 0;
     padding: 0;
     background-color:rgba(21, 41, 56, 1); 
-    /* overflow-y: hidden; */
+    overflow-y: hidden;
 }
 
 .game{
@@ -43,10 +43,12 @@ body{
     width: 644px;
     font-family: Atkinson Hyperlegible;
 }
-/* 
+
 #gamesetup{
     height: 100vh;
-} */
+    margin: auto;
+    background-color:rgba(21, 41, 56, 1);
+}
 
  .theme{
     height: 93px;
@@ -245,10 +247,11 @@ body{
     background: #FFB84A;
 }
 
-/* #gameboard_6x6_start_solo,#gameboard_4x4_start_solo,
+#gameboard_6x6_start_solo,#gameboard_4x4_start_solo,
 #gameboard_4x4_start,#gameboard_6x6_start{
-    height: 100%;
-} */
+    height: 1042px;
+    width: 100%;
+}
 
 /* Game board 6x6 & 4x4*/
 .gameboard{
@@ -274,7 +277,7 @@ body{
     color: #152938;
 }
 
-.gameboardheader_right{
+.gameboard_header_right{
     width: 292px;
     height: 52px;
     display: flex;
@@ -320,6 +323,35 @@ body{
     background-color: #6395B8;
     color: white;
 }
+
+
+.menu_btn1,.menu_btn2,
+.menu_btn3,.menu_btn4 {
+    width: 78px;
+    height: 40px;
+    background-color: #FDA214;
+    border-radius: 26px;
+    color: #FCFCFC;
+    font-family: 'Atkinson Hyperlegible';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    border: none;
+    display: none;
+}
+
+.menu_btn1:hover,.menu_btn2:hover,
+.menu_btn3:hover,.menu_btn4:hover {
+    cursor: pointer;
+    background-color: #FFB84A;
+}
+
+.menu{
+    display: none;
+}
+
 .gameboard6x6{
     height: 572px;
     width: 572px;
@@ -365,7 +397,6 @@ body{
 }
 
 .scoreboard{
-    /* width: 210px; */
     height: 72px;
     width: 255px;
     display: flex;
@@ -381,6 +412,14 @@ body{
     font-size: 18px;
     color: #7191A5;
     margin: auto;
+}
+
+
+.mobile_only{
+    display: none;
+}
+.desktop_only{
+    display: block;
 }
 
 .score{
@@ -589,7 +628,6 @@ body{
     text-align: center;
     justify-content: center;
     color: #FCFCFC;
-    /* background-color:#BCCED9; */
   }
 
   .hidden{
@@ -815,7 +853,8 @@ body{
     text-align: right;
   }
 
-  #game-over-modal_solo, #winner_modal_multi, #tie_modal_multi{
+  #game-over-modal_solo, #winner_modal_multi,
+   #tie_modal_multi,#menu_modal{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -829,33 +868,281 @@ body{
 
   
 
-
-
-
-
-
+@media only screen and (min-width: 768px) and (max-width: 1104px){
+  
+    .game{
+    margin-top: 169px;
+    margin: auto;
+   } 
  
+   .gameboard_header{
+    width: 689px;
+    margin-bottom: 50px;
+   }
 
-/* @media only screen and (min-width: 768px) and (max-width: 1104px){
-    
-    body{
-        width: auto;
-        height: auto;
-    }
+   .playerscontainer{
+    width: 689px;
+    height: 92px;
+    gap: 11px;
+   }
+
+   .current_turn{
+    display: none;
+  }
+   
+  .scoreboard{
+    width: 164px;
+    height: 80px;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
 }
 
-@media only screen and (min-width: 300px) and (max-width: 420px){
+@media only screen and (min-width: 300px) and (max-width: 430px){
     
-    body{
-        width: auto;
-        height: auto;
-    }
-
-    .game{
+    .gamesetup{
         width: 327px;
         height: 386px;
+        margin: auto;
+        margin-top: 100px;
     }
-} */
+
+    .gametitle{
+        display: none;
+    }
+
+
+    .gameboard_header{
+        width: 300px;
+        height: 40px;
+        display: flex;
+        justify-content: space-evenly;
+        gap: 75px;
+        margin: auto;
+    }
+
+    .gameboard_header_left{
+        width: 92px;
+        font-size: 24px;
+        margin:auto;
+    }
+
+    .gameboard_header_right{
+        width: 78px;
+        height: 40px;
+    }
+    .gameboard_header_right_newgame_btn1,.gameboard_header_right_restart_btn1,
+    .gameboard_header_right_newgame_btn2,.gameboard_header_right_restart_btn2,
+    .gameboard_header_right_newgame_btn3,.gameboard_header_right_restart_btn3,
+    .gameboard_header_right_newgame_btn4,.gameboard_header_right_restart_btn4{
+        display: none;
+    }
+
+    .menu{
+        display: block;
+    }
+
+    .menu_btn1,.menu_btn2,
+    .menu_btn3,.menu_btn4 {
+        display: block;
+        margin: auto;
+    }
+
+    .menushow_modal{
+        font-family: 'Atkinson Hyperlegible';
+        width: 327px;
+        height: 40px;
+        background-color: #F2F2F2;
+        border-radius: 10px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .menu_modal_btns{
+        width: 279px;
+        height: 48px;
+        border-radius: 26px;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 22px;
+        text-align: center;
+    }
+
+    #menu_restart_btn{
+        background-color: #FDA214; 
+        color: #FCFCFC;;
+    }
+
+    #menu_newgame_btn,#menu_resumegame_btn{
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 22px;
+        text-align: center;
+        color: #304859;
+        background-color: #DFE7EC;
+    }
+ 
+    .gameboard{
+        width: 375px;
+        height: 667px;
+    }
+
+    .gameboard4x4{
+        width: 327px;
+        height: 327px; 
+        margin-top: 40px;
+    }
+
+    .card4x4_solo , .card4x4_multi{
+        height: 72.5px;
+        width: 72.5px;
+    }
+
+    .gameboard6x6{
+        width: 326.88px;
+        height: 326.88px;
+        margin-top: 35px;
+    }
+
+    .card6x6_solo, .card6x6_multi{
+        height: 46.8px;
+        width: 46.8px;
+    }
+
+    .card4x4_solo i.fa, .card4x4_multi i.fa {
+        font-size: 40px;
+    }
+    
+    
+    .card6x6_solo i.fa, .card6x6_multi i.fa{
+        font-size: 20px;
+        height: 45px;
+    }
+    
+    .card6x6_multi[data-value],.card6x6_solo[data-value] {
+        font-size: 24px;
+      }
+    
+    .card4x4_multi[data-value],.card4x4_solo[data-value] {
+        font-size: 40px;   
+      }
+
+      .timermoves_solo{
+        width: 327px;
+        height: 70px;
+    }
+    
+    .timer_solo{
+        width: 151px;
+        height: 70px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 5px;
+        margin: auto;
+    }
+    
+    .time_solo{
+        height: 19px;
+        width: 87px;
+        font-size: 15px;
+        text-align: center;
+        margin: auto;
+        margin-top: 10px;
+    }
+    
+    .timecount_solo,.timecount_solo6x6{
+        height: 30px;
+        width: 56px;
+        font-size: 24px;
+        text-align: center;
+        margin: auto;
+    }
+    
+    .moves_solo{
+        width: 151px;
+        height: 70px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 5px;
+        justify-content: space-between;
+    }
+    
+    .move_solo{
+        height: 19px;
+        width: 87px;
+        text-align: center;
+        font-size: 15px;
+        margin: auto;
+        margin-top: 10px;
+    }
+    
+    .movescount_solo, .movescount_solo6x6{
+        height: 30px;
+        width: 56px;
+        font-size: 24px;
+        text-align: center;
+        margin: auto;
+    }
+
+    .playerscontainer{
+        width: 327px;
+        height: 78px;
+        margin: auto;
+        margin-top: 100px;
+    }
+    
+    .player_turn{
+        width: 64px;
+        height: 78px;
+        margin: auto;
+    }
+    
+    .scoreboard{
+        width: 64px;
+        height: 78px;
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-content: space-between;
+        margin: auto;
+        gap: 5px;
+    }
+    
+    .allplayers{
+        height: 19px;
+        width: 37px;
+        font-size: 15px;
+        margin: auto;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .mobile_only{
+        display: block;
+    }
+    .desktop_only{
+        display: none;
+    }
+    
+    .score{
+        height: 30px;
+        width: 24px;
+        font-size: 24px;
+        margin: auto;
+        text-align: center;
+    }
+    
+    .current_turn{
+        display: none;
+    }
+
+} 
 
 
 

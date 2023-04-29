@@ -12,7 +12,7 @@
 </head>
 <body>
     <section id="gamesetup">
-        <div class="Game">
+        <div class="game">
             <div class="gametitle"> 
                 <h1> memory</h1>
             </div>
@@ -67,6 +67,9 @@
                     <button class="gameboard_header_right_restart_btn1" type="text">Restart</button>
                     <button class="gameboard_header_right_newgame_btn1" type="text">New Game</button>
                 </div>
+                <div class="menu">
+                    <button class = "menu_btn1" type="text"> Menu </button>
+                </div>
             </div>
             <div class="gameboard4x4">
                 <div class="row4x4">
@@ -116,6 +119,9 @@
                 <div class="gameboard_header_right">
                     <button class="gameboard_header_right_restart_btn2" type="text">Restart</button>
                     <button class="gameboard_header_right_newgame_btn2" type="text">New Game</button>
+                </div>
+                <div class="menu">
+                    <button class = "menu_btn2" type="text"> Menu </button>
                 </div>
             </div>
             <div class="gameboard6x6">
@@ -191,6 +197,9 @@
                     <button class="gameboard_header_right_restart_btn3" type="text">Restart</button>
                     <button class="gameboard_header_right_newgame_btn3" type="text">New Game</button>
                 </div>
+                <div class="menu">
+                    <button class = "menu_btn3" type="text"> Menu </button>
+                </div>
             </div>
             <div class="gameboard4x4">
                 <div class="row4x4">
@@ -222,7 +231,8 @@
             <div class="playerscontainer">
                 <div id="player1_4x4" class="player_turn currentplayer">
                     <div class="scoreboard">
-                        <p class="allplayers">Player 1</p>
+                        <p class=" allplayers desktop_only">Player 1</p>
+                        <p class=" allplayers mobile_only">P1</p>
                         <p class="score">0</p>
                     </div>
                     <div class="current_turn">
@@ -231,7 +241,8 @@
                 </div>
                 <div id="player2_4x4" class="player_turn">
                     <div class="scoreboard">
-                        <p class="allplayers">Player 2</p>
+                        <p class=" allplayers desktop_only">Player 2</p>
+                        <p class=" allplayers mobile_only">P2</p>
                         <p class="score">0</p>
                     </div>
                     <div class="current_turn hidden">
@@ -240,7 +251,8 @@
                 </div>
                 <div id="player3_4x4" class="player_turn">
                     <div class="scoreboard">
-                        <p class="allplayers">Player 3</p>
+                        <p class=" allplayers desktop_only">Player 3</p>
+                        <p class=" allplayers mobile_only">P3</p>
                         <p class="score">0</p>
                     </div>
                     <div class="current_turn hidden">
@@ -249,7 +261,8 @@
                 </div>
                 <div id="player4_4x4" class="player_turn">
                     <div class="scoreboard">
-                        <p class="allplayers">Player 4</p>
+                        <p class=" allplayers desktop_only">Player 4</p>
+                        <p class=" allplayers mobile_only">P4</p>
                         <p class="score">0</p>
                     </div>
                     <div class="current_turn hidden">
@@ -269,6 +282,9 @@
                 <div class="gameboard_header_right">
                     <button class="gameboard_header_right_restart_btn4" type="text">Restart</button>
                     <button class="gameboard_header_right_newgame_btn4" type="text">New Game</button>
+                    <div class="menu">
+                        <button class = "menu_btn4" type="text"> Menu </button>
+                    </div>
                 </div>
             </div>
             <div class="gameboard6x6">
@@ -325,7 +341,8 @@
             <div class="playerscontainer">
                 <div id="player16x6" class="player_turn currentplayer">
                     <div class="scoreboard">
-                        <p class="allplayers">Player 1</p>
+                        <p class=" allplayers desktop_only">Player 1</p>
+                        <p class=" allplayers mobile_only">P1</p>
                         <p class="score">0</p>
                     </div>
                     <div class="current_turn">
@@ -334,7 +351,8 @@
                 </div>
                 <div id="player26x6" class="player_turn">
                     <div class="scoreboard">
-                        <p class="allplayers">Player 2</p>
+                        <p class=" allplayers desktop_only">Player 2</p>
+                        <p class=" allplayers mobile_only">P2</p>
                         <p class="score">0</p>
                     </div>
                     <div class="current_turn hidden">
@@ -343,7 +361,8 @@
                 </div>
                 <div id="player36x6" class="player_turn">
                     <div class="scoreboard">
-                        <p class="allplayers">Player 3</p>
+                        <p class=" allplayers desktop_only">Player 3</p>
+                        <p class=" allplayers mobile_only">P3</p>
                         <p class="score">0</p>
                     </div>
                     <div class="current_turn hidden">
@@ -352,7 +371,8 @@
                 </div>
                 <div id="player46x6" class="player_turn">
                     <div class="scoreboard">
-                        <p class="allplayers">Player 4</p>
+                        <p class=" allplayers desktop_only">Player 4</p>
+                        <p class=" allplayers mobile_only">P4</p>
                         <p class="score">0</p>
                     </div>
                     <div class="current_turn hidden">
@@ -442,6 +462,13 @@
             </div>
             </div>     
     </section> 
+    <section id="menu_modal">
+        <div class="menushow_modal">
+            <button id="menu_restart_btn" class="menu_modal_btns">Restart</button>
+            <button id="menu_newgame_btn" class="menu_modal_btns">New Game</button>
+            <button id="menu_resumegame_btn" class="menu_modal_btns">Resume Game</button>
+        </div>
+    </section>
     <script src="game.js"></script>
 </body>
 </html>

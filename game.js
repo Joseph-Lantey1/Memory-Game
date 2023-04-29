@@ -1229,7 +1229,25 @@ function setupGame(theme, gridSize, numPlayers) {
               }  
             }
           }  
+           
+          // const menuModal = document.getElementById("menu_modal");
+          // const menuBtn1 = document.querySelector("#menu_btn1");
+          // const menuBtn2= document.querySelector("#menu_btn2");
+          // const menuBtn3 = document.querySelector("#menu_btn3");
+          // const menuBtn4 = document.querySelector("#menu_btn4");
         
+          // menuBtn1.addEventListener("click", () => {
+          //   menuModal.style.display = "block";
+          // });
+          // menuBtn2.addEventListener("click", () => {
+          //   menuModal.style.display = "block";
+          // });
+          // menuBtn3.addEventListener("click", () => {
+          //   menuModal.style.display = "block";
+          // });
+          // menuBtn4.addEventListener("click", () => {
+          //   menuModal.style.display = "block";
+          // });
         
         
         
