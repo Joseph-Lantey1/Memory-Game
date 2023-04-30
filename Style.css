@@ -324,30 +324,6 @@ body{
     color: white;
 }
 
-
-.menu_btn1,.menu_btn2,
-.menu_btn3,.menu_btn4 {
-    width: 78px;
-    height: 40px;
-    background-color: #FDA214;
-    border-radius: 26px;
-    color: #FCFCFC;
-    font-family: 'Atkinson Hyperlegible';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 20px;
-    text-align: center;
-    border: none;
-    display: none;
-}
-
-.menu_btn1:hover,.menu_btn2:hover,
-.menu_btn3:hover,.menu_btn4:hover {
-    cursor: pointer;
-    background-color: #FFB84A;
-}
-
 .menu{
     display: none;
 }
@@ -906,6 +882,12 @@ body{
         width: 375px;
     }
 
+    #gameboard_6x6_start_solo,#gameboard_4x4_start_solo,
+    #gameboard_4x4_start,#gameboard_6x6_start{
+        height: 100%;
+        width: 100%;;
+    }
+
     .game{
         height: 667px;
         width: 375px;
@@ -1065,6 +1047,29 @@ body{
 
     .menu_btn1,.menu_btn2,
     .menu_btn3,.menu_btn4 {
+    width: 78px;
+    height: 40px;
+    background-color: #FDA214;
+    border-radius: 26px;
+    color: #FCFCFC;
+    font-family: 'Atkinson Hyperlegible';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    border: none;
+    display: none;
+    }
+
+    .menu_btn1:hover,.menu_btn2:hover,
+    .menu_btn3:hover,.menu_btn4:hover {
+        cursor: pointer;
+        background-color: #FFB84A;
+    }
+
+    .menu_btn1,.menu_btn2,
+    .menu_btn3,.menu_btn4 {
         display: block;
         margin: auto;
     }
@@ -1075,7 +1080,7 @@ body{
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(100%, 100%);
+        transform: translate(-50%, -50%);
         z-index: 1;
         backdrop-filter: blur(0.5px);
         background-color: rgba(0, 0, 0, 0.5);
@@ -1123,6 +1128,18 @@ body{
         color: #304859;
         background-color: #DFE7EC;
     }
+
+    #menu_restart_btn:hover{
+        cursor: pointer;
+        background-color: #FFB84A;
+    }
+
+    #menu_newgame_btn:hover,
+    #menu_resumegame_btn:hover{
+        cursor: pointer;
+        background-color: #6395B8;
+        color: white;
+    }
  
     .gameboard{
         width: 375px;
@@ -1147,8 +1164,8 @@ body{
     }
 
     .card6x6_solo, .card6x6_multi{
-        height: 46.8px;
-        width: 46.8px;
+        height: 50px;
+        width: 50px;
     }
 
     .card4x4_solo i.fa, .card4x4_multi i.fa {
@@ -1276,6 +1293,152 @@ body{
     
     .current_turn{
         display: none;
+    }
+
+    #game-over-modal_solo{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+        backdrop-filter: blur(0.5px);
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .modal_content_solo{
+        width: 327px;
+        height: 376px;
+        background: #F2F2F2;
+        margin-top: 150px;
+    }
+
+    .solo_modal_heading{
+        width: 238px;
+        margin: auto;
+        padding: 1em;
+    }
+
+    .solo_modal_heading h1{
+        font-size: 24px;
+        margin-bottom: -16px
+    }
+
+    .solo_modal_heading p{
+        font-size: 14px;
+    }
+
+    .modal_time, .modal_move{
+        width: 279px;
+        height: 48px;
+    }
+
+    .modal_move{
+        margin-top: 16px;
+    }
+
+    #time_taken,#moves_taken{
+        font-size: 13px;
+        height: 16px;
+        width: 84px;
+    }
+        
+    #time, #move{
+        height: 25px;
+        font-size: 20px;
+        margin: auto;
+    }
+
+    .modal_btns, .modal_btns_tie{
+        font-family: 'Atkinson Hyperlegible';
+        width: 279px;
+        height: 112px;
+        margin: auto;
+        margin-top: 20px;
+        grid-template-columns: 1fr;
+    }
+
+    .modal_restart_btn, .modal_newgame_btn,
+    .modal_restart_btn_multi, .modal_newgame_btn_multi,
+    .modal_restart_btn_tie, .modal_newgame_btn_tie{
+        width: 279px;
+        height: 48px;
+    }
+    
+    .modal_restart_btn,
+    .modal_restart_btn_multi,
+    .modal_restart_btn_tie{
+        font-size: 18px;
+        line-height: 22px;
+        text-align: center;
+    }
+
+    .modal_newgame_btn,
+    .modal_newgame_btn_multi,
+    .modal_newgame_btn_tie{
+        font-size: 18px;
+        line-height: 22px;
+        text-align: center;
+    }
+
+    .modal_content_multi,.modal_content_multi_tie{
+        margin: auto;
+        width: 327px;
+        height: 488px;
+        margin-top: 25px;
+    }
+
+    .multi_modal_heading,.multi_modal_heading_tie{
+        width: 223px;   
+        margin: auto;
+        padding: 1em;
+        text-align: center;
+        font-family: 'Atkinson Hyperlegible';
+    }
+
+    .multi_modal_heading h1,.multi_modal_heading_tie h1{
+        font-size: 20px;
+        text-align: center;
+        margin: auto;
+        width: 130px;
+        margin-bottom: 8px;
+    }
+
+    .multi_modal_heading p,.multi_modal_heading_tie p{
+        width: 223px;
+        font-size: 14px;
+        text-align: center;
+        margin: auto;
+        margin-bottom: 10px;
+    }
+
+    .modal_multi_stats,.modal_multi_stats_tie{
+        width: 279px;
+        height: 216px;
+        margin: auto;
+        justify-content: space-between;
+        margin-bottom: 25px;
+    }
+
+    .players_stats,.players_stats_tie{
+        font-family: "Atkinson Hyperlegible";
+        width: 279px;
+        height: 48px;
+        margin: auto;
+        align-items: center;
+    }
+
+    .modal_players,.modal_players_tie{
+        font-size: 13px;;
+        margin: auto;
+        text-align: left;
+    }
+
+    .stats, .stats_tie{
+        font-size: 20px;
+        margin: auto;
+        text-align: right;
     }
 
 } 

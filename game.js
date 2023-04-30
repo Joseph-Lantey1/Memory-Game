@@ -1229,9 +1229,43 @@ function setupGame(theme, gridSize, numPlayers) {
               }  
             }
           }  
-           
-      
-        
+
+          const menuModal = document.getElementById("menu_modal");
+          const menuRestartBtn = document.getElementById("menu_restart_btn");
+          const menuNewGameBtn = document.getElementById("menu_newgame_btn");
+          const menuResumeGameBtn = document.getElementById("menu_resumegame_btn");
+          const menuBtn1 = document.querySelector(".menu_btn1");
+          const menuBtn2 = document.querySelector(".menu_btn2");
+          const menuBtn3 = document.querySelector(".menu_btn3");
+          const menuBtn4 = document.querySelector(".menu_btn4");
+
+
+          menuBtn1.addEventListener("click", () => {
+            stopTimer();
+            menuModal.style.display = "block";
+          })
+          menuBtn2.addEventListener("click", () => {
+            stopTimer();
+            menuModal.style.display = "block";
+          })
+          menuBtn3.addEventListener("click", () => {
+            menuModal.style.display = "block";
+          })
+          menuBtn4.addEventListener("click", () => {
+            menuModal.style.display = "block";
+          })
+
+          menuRestartBtn.addEventListener("click", () => {
+              restartBtn1.click();
+              restartBtn2.click();
+              restartBtn3.click();
+              restartBtn4.click();
+              menuModal.style.display = "none";
+          })
+
+          menuNewGameBtn.addEventListener("click", ()=>{
+            location.reload();
+          })
         
 
         
