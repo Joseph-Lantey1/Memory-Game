@@ -854,7 +854,7 @@ body{
   }
 
   #game-over-modal_solo, #winner_modal_multi,
-   #tie_modal_multi,#menu_modal{
+   #tie_modal_multi{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -900,18 +900,138 @@ body{
 }
 
 @media only screen and (min-width: 300px) and (max-width: 430px){
+
+    #gamesetup{
+        height: 667px;
+        width: 375px;
+    }
+
+    .game{
+        height: 667px;
+        width: 375px;
+        margin: auto;
+    }
     
     .gamesetup{
         width: 327px;
         height: 386px;
         margin: auto;
-        margin-top: 100px;
+        margin-top: 165px;
+    }
+
+    .theme{
+        width: 279px;
+        height: 70px;
+        margin: auto;
+    }
+    
+    .themeheading {
+        height: 19px;
+        width: 98px;
+    }
+    
+    .themeheading h1{
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 19px;
+    }
+    
+    .theme_btn{
+        width: 279px;
+        height: 40px;
+        column-gap: 15px;
+    }
+    
+    #number_btn, #icon_btn{
+        width: 134px;
+        height: 40px;
+        font-size: 16px;
+        line-height: 20px;
+    }
+    
+    .playersselect{
+        width: 279px;
+        height: 70px;
+        margin: auto;
+    }
+    
+    .playersselect_heading{
+        height: 19px;
+        width: 140px;
+    }
+    
+    .playersselect_heading h1{
+        font-size: 15px;
+        line-height: 19px;
+        margin-top: 32px;
+    }
+    
+    .playersselect_btn{
+        width: 279px;
+        height: 40px;
+        display: flex;
+        column-gap: 10px;
+        padding-top: 0.8em;
+    }
+    
+    .player1,.players2,
+    .players3,.players4{
+        height: 40px;
+        width: 62px;
+        font-size: 16px;
+        line-height: 20px;
+    }
+       
+    .gridsize{
+        width: 279px;
+        height: 70px;
+        margin: auto;
+        margin-top: 24px;
+    }
+    
+    .gridsize_heading{
+        height: 19px;
+        width: 66px;   
+    }
+
+    .gridsize_heading h1{
+        font-size: 15px;
+        line-height: 19px;
+        margin-top: 25px;
+    }
+    
+    .gridsize_btn{
+        width: 279px;
+        height: 40px;
+        padding-top: 0.5em;
+        display: flex;
+        column-gap: 15px;
+    }
+    
+    .fourbyfour, .sixbysix{
+        width: 134px;
+        height: 40px;
+        font-size: 16px;
+        line-height: 20px;
+    }
+    
+    .startgame{
+        width: 279px;
+        height: 48px;
+        margin: auto;
+        padding-top: 1em;
+    }
+    
+    .startgame_btn{
+        width: 279px;
+        height: 48px;
+        font-size: 18px;
+        line-height: 22px;
     }
 
     .gametitle{
         display: none;
     }
-
 
     .gameboard_header{
         width: 300px;
@@ -949,17 +1069,31 @@ body{
         margin: auto;
     }
 
+    #menu_modal{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(100%, 100%);
+        z-index: 1;
+        backdrop-filter: blur(0.5px);
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
     .menushow_modal{
         font-family: 'Atkinson Hyperlegible';
-        width: 327px;
-        height: 40px;
+        height: 224px;
         background-color: #F2F2F2;
-        border-radius: 10px;
+        width: 327px;
         margin: auto;
         display: grid;
         grid-template-columns: 1fr;
-        justify-content: space-evenly;
+        gap: 15px;
         align-items: center;
+        justify-content: center;
+        margin-top: 24px;
+        border-radius: 10px;
     }
 
     .menu_modal_btns{
@@ -971,6 +1105,8 @@ body{
         font-size: 18px;
         line-height: 22px;
         text-align: center;
+        border: none;
+        margin: auto;
     }
 
     #menu_restart_btn{
@@ -996,7 +1132,7 @@ body{
     .gameboard4x4{
         width: 327px;
         height: 327px; 
-        margin-top: 40px;
+        margin-top: 30px;
     }
 
     .card4x4_solo , .card4x4_multi{
