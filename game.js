@@ -1239,22 +1239,35 @@ function setupGame(theme, gridSize, numPlayers) {
           const menuBtn3 = document.querySelector(".menu_btn3");
           const menuBtn4 = document.querySelector(".menu_btn4");
 
-
+          // menu buttons
           menuBtn1.addEventListener("click", () => {
             stopTimer();
+            let gameState = {
+              time: time,
+              moves: moves,
+            };
+            localStorage.setItem("gameState", JSON.stringify(gameState));
             menuModal.style.display = "block";
           })
           menuBtn2.addEventListener("click", () => {
             stopTimer();
+            let gameState = {
+              time: time,
+              moves: moves,
+            };
+            localStorage.setItem("gameState", JSON.stringify(gameState));
             menuModal.style.display = "block";
           })
           menuBtn3.addEventListener("click", () => {
+            storedScore = getCurrentScore();
             menuModal.style.display = "block";
           })
           menuBtn4.addEventListener("click", () => {
+            storedScore = getCurrentScore();
             menuModal.style.display = "block";
           })
 
+          // modal restart button
           menuRestartBtn.addEventListener("click", () => {
               restartBtn1.click();
               restartBtn2.click();
@@ -1263,9 +1276,29 @@ function setupGame(theme, gridSize, numPlayers) {
               menuModal.style.display = "none";
           })
 
+            // modal newgame button 
           menuNewGameBtn.addEventListener("click", ()=>{
             location.reload();
           })
-        
+          
+          // modal resume game button 
+          menuResumeGameBtn.addEventListener("click", function() {
+            // Retrieve the saved game state from localStorage
+            const savedGameState = JSON.parse(localStorage.getItem("gameState"));
+            if (savedGameState) {
+              // If a saved game state exists, use it to restore the game
+              time = savedGameState.time;
+              moves = savedGameState.moves;
+              localStorage.removeItem("gameState");
+              menuModal.style.display = "none";
+              startTimer();
+            }
+            else {  getCurrentScore(storedScore); // set stored score as current score
+            menuModal.style.display = "none"}
+            })
+            let storedScore = 0;
+            function getCurrentScore() {
+              return Number(document.querySelector(".score").textContent);
+            }
 
         
