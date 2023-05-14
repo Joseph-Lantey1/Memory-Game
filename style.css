@@ -873,7 +873,7 @@ body{
     width: 689px;
     height: 92px;
     gap: 11px;
-    margin-top: 100px;
+    margin-top: 90px;
    }
 
    .current_turn{
@@ -881,15 +881,15 @@ body{
    }
 
   .gameboard4x4{
-    margin-top: 165px;
-  }
-
-  .gameboard6x6{
     margin-top: 130px;
   }
 
-  #playerscontainer6x6{
+  .gameboard6x6{
     margin-top: 100px;
+  }
+
+  #playerscontainer6x6{
+    margin-top: 80px;
   }
 
   .timermoves_solo{
