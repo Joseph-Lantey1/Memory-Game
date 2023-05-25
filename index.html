@@ -6,20 +6,20 @@
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="Style.css">
   
   <title>Memory Game</title>
 </head>
 <body>
     <section id="gamesetup">
-        <div class="game">
-            <div class="gametitle"> 
-                <h1> memory</h1>
-            </div>
+        <div class="Game">
+                <div class="gametitle"> 
+                    <h1> memory</h1>
+                </div>
               
       <!-- Game setup start -->
-            <div class="gamesetup">
-                <div class="theme">
+                <div class="gamesetup">
+                        <div class="theme">
                     <div class="themeheading">
                         <h1>Select Theme</h1>
                     </div>
@@ -34,13 +34,13 @@
                         <h1>Number of Players</h1>
                     </div>
                     <div class="playersselect_btn">
-                        <button Class="player1 selected" type="number">1</button>
-                        <button class="players2" type="number">2</button>
-                        <button class="players3" type="number">3</button>
-                        <button class="players4" type="number">4</button>
+                        <button id="player_1" class="oneplayer selected" type="number">1</button>
+                        <button id="player_2"class="twoplayers" type="number">2</button>
+                        <button id="player_3"class="threeplayers" type="number">3</button>
+                        <button id="player_4" class="fourplayers" type="number">4</button>
                     </div>
                 </div>
-                <div class="gridsize">
+                <div id="grid_size" class="gridsize">
                     <div class=gridsize_heading>
                         <h1>Grid Size</h1>
                     </div>
@@ -49,334 +49,83 @@
                         <button class="sixbysix" type="number">6x6</button>
                     </div>
                 </div>
-                <div class="startgame">
-                    <button class="startgame_btn" type="text">Start Game</button>
+                <div id="start_game" class="startgame">
+                    <button  id="start_game_btn" class="startgame_btn" type="text">Start Game</button>
                 </div>  
-            </div>
       <!-- <!- - Game setup end --> 
+            </div>
         </div>
     </section>
-    <section id="gameboard_4x4_start_solo">
-        <div class="gameboard_solo">
-            <!-- Game board 4x4 solo start -->
+    <section id="gamestart">
+        <div class="gamestart">
+            <!-- Game board  start -->
             <div class="gameboard_header">
                 <div class="gameboard_header_left">
                     memory
                 </div>
                 <div class="gameboard_4x4_header_right">
-                    <button class="gameboard_header_right_restart_btn1" type="text">Restart</button>
-                    <button class="gameboard_header_right_newgame_btn1" type="text">New Game</button>
+                    <button class="gameboard_header_right_restart_btn" type="text">Restart</button>
+                    <button class="gameboard_header_right_newgame_btn" type="text">New Game</button>
                 </div>
                 <div class="menu">
-                    <button class = "menu_btn1" type="text"> Menu </button>
+                    <button class = "menu_btn" type="text"> Menu </button>
                 </div>
             </div>
-            <div class="gameboard4x4">
-                <div class="row4x4">
-                    <div class="card4x4_solo"></div>
-                    <div class="card4x4_solo"></div>
-                    <div class="card4x4_solo"></div>
-                    <div class="card4x4_solo"></div>
-                </div>
-                <div class="row4x4">
-                    <div class="card4x4_solo"></div>
-                    <div class="card4x4_solo"></div>
-                    <div class="card4x4_solo"></div>
-                    <div class="card4x4_solo"></div>
-                </div>
-                <div class="row4x4">
-                    <div class="card4x4_solo"></div>
-                    <div class="card4x4_solo"></div>
-                    <div class="card4x4_solo"></div>
-                    <div class="card4x4_solo"></div>
-                </div>
-                <div class="row4x4">
-                    <div class="card4x4_solo"></div>
-                    <div class="card4x4_solo"></div>
-                    <div class="card4x4_solo"></div>
-                    <div class="card4x4_solo"></div>
-                </div>
+            <div>
+                <div class="gameboard4x4"></div>
+                <div class="gameboard6x6"></div>
             </div>
-            <div class="timermoves_solo">
-                <div class="timer_solo">
-                    <p class="time_solo">Time</p>
-                    <p class="timecount_solo">0:00</p>
+            <div id="score_container" class="scorecontainer">
+                <div id="timer_moves" class="timermoves">
+                        <div class="timer">
+                            <p class="time">Time</p>
+                            <p class="timecount">0:00</p>
+                        </div>
+                        <div class="moves">
+                            <p class="move">Moves</p>
+                            <p class="movescount">0</p>
+                        </div>
                 </div>
-                <div class="moves_solo">
-                    <p class="move_solo">Moves</p>
-                    <p class="movescount_solo">0</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="gameboard_6X6_start_solo">
-        <div class="gameboard_solo">
-      <!-- Game board 6X6 solo start -->
-            <div class="gameboard_header">
-                <div class="gameboard_header_left">
-                    memory
-                </div>
-                <div class="gameboard_header_right">
-                    <button class="gameboard_header_right_restart_btn2" type="text">Restart</button>
-                    <button class="gameboard_header_right_newgame_btn2" type="text">New Game</button>
-                </div>
-                <div class="menu">
-                    <button class = "menu_btn2" type="text"> Menu </button>
-                </div>
-            </div>
-            <div class="gameboard6x6">
-                <div class="row6x6">
-                    <div class="card6x6_solo"></div>
-                    <div class="card6x6_solo"></div>
-                    <div class="card6x6_solo"></div>
-                    <div class="card6x6_solo"></div>
-                    <div class="card6x6_solo"></div>
-                    <div class="card6x6_solo"></div>
-                </div>
-                <div class="row6x6">
-                    <div class="card6x6_solo"></div>
-                    <div class="card6x6_solo"></div>
-                    <div class="card6x6_solo"></div>
-                    <div class="card6x6_solo"></div>
-                    <div class="card6x6_solo"></div>
-                    <div class="card6x6_solo"></div>
-                </div>
-                <div class="row6x6">
-                    <div class="card6x6_solo"></div>
-                    <div class="card6x6_solo"></div>
-                    <div class="card6x6_solo"></div>
-                    <div class="card6x6_solo"></div>
-                    <div class="card6x6_solo"></div>
-                    <div class="card6x6_solo"></div>
-                </div>
-                <div class="row6x6">
-                    <div class="card6x6_solo"></div>
-                    <div class="card6x6_solo"></div>
-                    <div class="card6x6_solo"></div>
-                    <div class="card6x6_solo"></div>
-                    <div class="card6x6_solo"></div>
-                    <div class="card6x6_solo"></div>
-                </div>
-                <div class="row6x6">
-                    <div class="card6x6_solo"></div>
-                    <div class="card6x6_solo"></div>
-                    <div class="card6x6_solo"></div>
-                    <div class="card6x6_solo"></div>
-                    <div class="card6x6_solo"></div>
-                    <div class="card6x6_solo"></div>
-                </div>
-                <div class="row6x6">
-                    <div class="card6x6_solo"></div>
-                    <div class="card6x6_solo"></div>
-                    <div class="card6x6_solo"></div>
-                    <div class="card6x6_solo"></div>
-                    <div class="card6x6_solo"></div>
-                    <div class="card6x6_solo"></div>
-                </div>
-            </div>
-            <div class="timermoves_solo">
-                <div class="timer_solo">
-                    <div class="time_solo">Time</div>
-                    <div class="timecount_solo6x6">0:00</div>
-                </div>
-                <div class="moves_solo">
-                    <div class="move_solo">Moves</div>
-                    <div class="movescount_solo6x6">0</div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="gameboard_4x4_start">
-        <div class="gameboard">
-      <!-- Game board 4x4 start -->
-            <div class="gameboard_header">
-                <div class="gameboard_header_left">
-                    memory
-                </div>
-                <div class="gameboard_header_right">
-                    <button class="gameboard_header_right_restart_btn3" type="text">Restart</button>
-                    <button class="gameboard_header_right_newgame_btn3" type="text">New Game</button>
-                </div>
-                <div class="menu">
-                    <button class = "menu_btn3" type="text"> Menu </button>
-                </div>
-            </div>
-            <div class="gameboard4x4">
-                <div class="row4x4">
-                    <div class="card4x4_multi"></div>
-                    <div class="card4x4_multi"></div>
-                    <div class="card4x4_multi"></div>
-                    <div class="card4x4_multi"></div>
-                </div>
-                <div class="row4x4">
-                    <div class="card4x4_multi"></div>
-                    <div class="card4x4_multi"></div>
-                    <div class="card4x4_multi"></div>
-                    <div class="card4x4_multi"></div>
-                </div>
-                <div class="row4x4">
-                    <div class="card4x4_multi"></div>
-                    <div class="card4x4_multi"></div>
-                    <div class="card4x4_multi"></div>
-                    <div class="card4x4_multi"></div>
-                </div>
-                <div class="row4x4">
-                    <div class="card4x4_multi"></div>
-                    <div class="card4x4_multi"></div>
-                    <div class="card4x4_multi"></div>
-                    <div class="card4x4_multi"></div>
-                </div>
-           </div>
-             <!-- Multiplayer 4X4 scores start -->
-            <div class="playerscontainer">
-                <div id="player1_4x4" class="player_turn currentplayer">
-                    <div class="scoreboard">
-                        <p class=" allplayers desktop_only">Player 1</p>
-                        <p class=" allplayers mobile_only">P1</p>
-                        <p class="score">0</p>
+                <div id ="players_container" class="playerscontainer">
+                    <div id="player1" class ="player_turn currentplayer">
+                        <div class ="scoreboard">
+                            <p  id ="p1" class ="allplayers desktop_only">Player 1</p>
+                            <p class ="allplayers mobile_only">P1</p>
+                            <p id ="p1_score" class="score">0</p>
+                        </div>
+                        <div class="current_turn">
+                            CURRENT TURN
+                        </div>
                     </div>
-                    <div class="current_turn">
-                        CURRENT TURN
+                    <div id ="player2" class="player_turn">
+                        <div class ="scoreboard">
+                            <p id="p2" class="allplayers desktop_only">Player 2</p>
+                            <p class="allplayers mobile_only">P2</p>
+                            <p id="p2_score" class ="score">0</p>
+                        </div>
+                        <div class="current_turn hidden">
+                            CURRENT TURN
+                        </div>
                     </div>
-                </div>
-                <div id="player2_4x4" class="player_turn">
-                    <div class="scoreboard">
-                        <p class=" allplayers desktop_only">Player 2</p>
-                        <p class=" allplayers mobile_only">P2</p>
-                        <p class="score">0</p>
+                    <div id ="player3" class="player_turn">
+                        <div class ="scoreboard">
+                            <p id ="p3" class ="allplayers desktop_only">Player 3</p>
+                            <p class ="allplayers mobile_only">P3</p>
+                            <p id ="p3_score" class ="score">0</p>
+                        </div>
+                        <div class="current_turn hidden">
+                            CURRENT TURN
+                        </div>
                     </div>
-                    <div class="current_turn hidden">
-                        CURRENT TURN
-                    </div>
-                </div>
-                <div id="player3_4x4" class="player_turn">
-                    <div class="scoreboard">
-                        <p class=" allplayers desktop_only">Player 3</p>
-                        <p class=" allplayers mobile_only">P3</p>
-                        <p class="score">0</p>
-                    </div>
-                    <div class="current_turn hidden">
-                        CURRENT TURN
-                    </div>
-                </div>
-                <div id="player4_4x4" class="player_turn">
-                    <div class="scoreboard">
-                        <p class=" allplayers desktop_only">Player 4</p>
-                        <p class=" allplayers mobile_only">P4</p>
-                        <p class="score">0</p>
-                    </div>
-                    <div class="current_turn hidden">
-                        CURRENT TURN
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="gameboard_6X6_start">
-        <div class="gameboard">
-      <!-- Game board 6X6 start -->
-            <div class="gameboard_header">
-                <div class="gameboard_header_left">
-                    memory
-                </div>
-                <div class="gameboard_header_right">
-                    <button class="gameboard_header_right_restart_btn4" type="text">Restart</button>
-                    <button class="gameboard_header_right_newgame_btn4" type="text">New Game</button>
-                    <div class="menu">
-                        <button class = "menu_btn4" type="text"> Menu </button>
-                    </div>
-                </div>
-            </div>
-            <div class="gameboard6x6">
-                <div class="row6x6">
-                    <div class="card6x6_multi"></div>
-                    <div class="card6x6_multi"></div>
-                    <div class="card6x6_multi"></div>
-                    <div class="card6x6_multi"></div>
-                    <div class="card6x6_multi"></div>
-                    <div class="card6x6_multi"></div>
-                </div>
-                    <div class="row6x6">
-                    <div class="card6x6_multi"></div>
-                    <div class="card6x6_multi"></div>
-                    <div class="card6x6_multi"></div>
-                    <div class="card6x6_multi"></div>
-                    <div class="card6x6_multi"></div>
-                    <div class="card6x6_multi"></div>
-                </div>
-                <div class="row6x6">
-                    <div class="card6x6_multi"></div>
-                    <div class="card6x6_multi"></div>
-                    <div class="card6x6_multi"></div>
-                    <div class="card6x6_multi"></div>
-                    <div class="card6x6_multi"></div>
-                    <div class="card6x6_multi"></div>
-                </div>
-                <div class="row6x6">
-                    <div class="card6x6_multi"></div>
-                    <div class="card6x6_multi"></div>
-                    <div class="card6x6_multi"></div>
-                    <div class="card6x6_multi"></div>
-                    <div class="card6x6_multi"></div>
-                    <div class="card6x6_multi"></div>
-                </div>
-                <div class="row6x6">
-                    <div class="card6x6_multi"></div>
-                    <div class="card6x6_multi"></div>
-                    <div class="card6x6_multi"></div>
-                    <div class="card6x6_multi"></div>
-                    <div class="card6x6_multi"></div>
-                    <div class="card6x6_multi"></div>
-                </div>
-                <div class="row6x6">
-                    <div class="card6x6_multi"></div>
-                    <div class="card6x6_multi"></div>
-                    <div class="card6x6_multi"></div>
-                    <div class="card6x6_multi"></div>
-                    <div class="card6x6_multi"></div>
-                    <div class="card6x6_multi"></div>
-                </div>
-             <!-- Multiplayer 6X6 scores start -->
-            </div>
-            <div  id="playerscontainer6x6" class="playerscontainer">
-                <div id="player16x6" class="player_turn currentplayer">
-                    <div class="scoreboard">
-                        <p class=" allplayers desktop_only">Player 1</p>
-                        <p class=" allplayers mobile_only">P1</p>
-                        <p class="score">0</p>
-                    </div>
-                    <div class="current_turn">
-                        CURRENT TURN
-                    </div>
-                </div>
-                <div id="player26x6" class="player_turn">
-                    <div class="scoreboard">
-                        <p class=" allplayers desktop_only">Player 2</p>
-                        <p class=" allplayers mobile_only">P2</p>
-                        <p class="score">0</p>
-                    </div>
-                    <div class="current_turn hidden">
-                        CURRENT TURN
-                    </div>
-                </div>
-                <div id="player36x6" class="player_turn">
-                    <div class="scoreboard">
-                        <p class=" allplayers desktop_only">Player 3</p>
-                        <p class=" allplayers mobile_only">P3</p>
-                        <p class="score">0</p>
-                    </div>
-                    <div class="current_turn hidden">
-                        CURRENT TURN
-                    </div>
-                </div>
-                <div id="player46x6" class="player_turn">
-                    <div class="scoreboard">
-                        <p class=" allplayers desktop_only">Player 4</p>
-                        <p class=" allplayers mobile_only">P4</p>
-                        <p class="score">0</p>
-                    </div>
-                    <div class="current_turn hidden">
-                    CURRENT TURN
+                    <div id ="player4" class="player_turn">
+                        <div class ="scoreboard">
+                            <p id ="p4" class="allplayers desktop_only">Player 4</p>
+                            <p class ="allplayers mobile_only">P4</p>
+                            <p id ="p4_score" class="score">0</p>
+                        </div>
+                        <div class="current_turn hidden">
+                            CURRENT TURN
+                        </div>
                     </div>
                 </div>
             </div>
@@ -394,7 +143,7 @@
           </div>
           <div class="modal_move">
               <p id="moves_taken">Moves Taken</p>
-              <p id="move">0 Moves</p>
+              <p id="move">0</p>
             </div>
           <div class="modal_btns">
             <button class="modal_restart_btn" type="text">Restart</button>
@@ -402,7 +151,7 @@
           </div>
         </div>
       </section> 
-      <section id="winner_modal_multi" class="modal_multi">
+      <section id="modal_multi" class="modal_multi">
         <div class="modal_content_multi">
             <div class="multi_modal_heading">
                 <h1 class = "who_wins">Player 1 Wins! </h1>
@@ -427,38 +176,38 @@
                 </div>
             </div>
             <div class="modal_btns">
-              <button class="modal_restart_btn_multi" type="text">Restart</button>
-              <button class="modal_newgame_btn_multi" type="text">Setup New Game</button>
+              <button id="restart_btn_modal" class="modal_restart_btn" type="text">Restart</button>
+              <button id="newgame_btn_modal" class="modal_newgame_btn" type="text">Setup New Game</button>
             </div>
             </div>     
     </section>
     <section id="tie_modal_multi" class="modal_multi_tie">
-        <div class="modal_content_multi_tie">
-            <div class="multi_modal_heading_tie">
+        <div class="modal_content_multi">
+            <div class="multi_modal_heading">
                 <h1>It's a tie! </h1>
                 <p> Game over! Here are the results</p>
             </div>
-            <div class="modal_multi_stats_tie">
+            <div class="modal_multi_stats">
               <div id="winner_tie" class = "players_stats">
                 <p id="winner1_title_tie" class="modal_players">Player (Winner!)</p>
-                <p id="winner1_stats_tie" class="stats_tie">6 Pairs</p>
+                <p id="winner1_stats_tie" class="stats">6 Pairs</p>
               </div>
               <div id="winner2_tie" class="players_stats">
                 <p id="winner2_title_tie" class="modal_players">Player (Winner!)</p>
-                <p id="winner2_stats_tie" class="stats_tie"> 6 Pairs</p>
+                <p id="winner2_stats_tie" class="stats"> 6 Pairs</p>
               </div>
-              <div id="third_tie" class="players_stats_tie">
+              <div id="third_tie" class="players_stats">
                 <p id="third_title_tie" class="modal_players">Player </p>
-                <p id="third_stats_tie" class="stats_tie"> 2 Pairs</p>
+                <p id="third_stats_tie" class="stats"> 2 Pairs</p>
               </div>
               <div id="last_tie" class="players_stats">
                 <p id="last_title_tie" class="modal_players">Player </p>
-                <p id="last_stats_tie" class="stats_tie"> 0 Pairs</p>
+                <p id="last_stats_tie" class="stats"> 0 Pairs</p>
                 </div>
             </div>
-            <div class="modal_btns_tie">
-              <button class="modal_restart_btn_tie" type="text">Restart</button>
-              <button class="modal_newgame_btn_tie" type="text">Setup New Game</button>
+            <div class="modal_btns">
+              <button id="restart_modal_btn" class="modal_restart_btn" type="text">Restart</button>
+              <button id="newgame_modal_btn" class="modal_newgame_btn" type="text">Setup New Game</button>
             </div>
             </div>     
     </section> 
@@ -468,7 +217,7 @@
             <button id="menu_newgame_btn" class="menu_modal_btns">New Game</button>
             <button id="menu_resumegame_btn" class="menu_modal_btns">Resume Game</button>
         </div>
-    </section>
+    </section> 
     <script src="game.js"></script>
 </body>
 </html>
